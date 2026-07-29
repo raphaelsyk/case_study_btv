@@ -1,0 +1,20 @@
+[project]
+name = "case-study-btv"
+version = "0.1.0"
+description = "Data pipeline for evaluating earnings calls"
+readme = "README.md"
+authors = [
+    { name = "Raphael Schymczyk", email = "raphael.schymczyk@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "docling>=2.116.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.0",
+    "ty>=0.0.64",
+]
+
