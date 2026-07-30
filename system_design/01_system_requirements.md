@@ -6,3 +6,4 @@
 - Separation of concerns: The system should be extensible to earnings-call pdfs of other companies and other reportgenerators, that focus on other topics than AI (e.g. for financial standings) 
 - The system should be possible to be run on-prem (except for LLM-calls) but easily extendable to run on the cloud
 - Any thrid party services (e.g. Vertex AI for LLM calls) needs to be wrapped, such that the provider can easily be swapped
+
