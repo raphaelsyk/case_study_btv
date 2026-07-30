@@ -1,4 +1,9 @@
 # Repository Rules
+- Read 'project_approach.md', to understand project goal and scope and 'Aufgabe_AI_Platform_Engineer.pdf' to get background information
+- Read documents in the system_design folder to understand core requirements and already given design decisions
+
+## System Design
+- Document every System Design Decision undertaken in 'system_design/02_system_design.md' or 'system_design/02_system_design_data_model.md' if it is with respect to the data model
 
 ## Coding rules
 - Prefer small classes and methods over collections of free functions. Simple functions are fine when they are the most idiomatic option, but favor object-oriented-programming where it improves structure.
@@ -6,7 +11,6 @@
 - When adding or editing a public method on a class, add or update a short docstring that states what the method does. Keep it concise and use the Google Docstring format
 - Add short comments where the reason for code is not obvious from the code itself, especially for unexpected behavior, external-site quirks, or integration constraints.
 - Use `ruff` for both formatting and linting, and `ty` for type checking. Run all three before finishing: `ruff format`, `ruff check`, and `ty check`. When commands, subcommands, options, prompts, or usage examples change, update the README in the same change.
-
 
 ## Dependency management
 - Add Python dependencies with `uv add ...`. Add tooling like `ruff` as dev dependencies with `uv add --dev ...`.
