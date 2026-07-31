@@ -27,25 +27,26 @@ Pages (delimited by <page N>...</page N> tags, matching physical PDF page number
 {tagged_text}
 """
 
-_CHUNK_SEGMENTATION_PROMPT = """\
+_TURN_SEGMENTATION_PROMPT = """\
 You are segmenting a full earnings-call transcript into individual speaker turns.
 
 The transcript is delimited by <page N>...</page N> tags giving the physical PDF page \
-number of each page's text. Produce one chunk per continuous turn by a single speaker:
-- Never split a single speaker's continuous turn into multiple chunks.
-- A chunk's `text` field is a list of page-tagged segments: one segment per physical \
-page (from the <page N> tags) that the turn's text appears on, in page order, each \
-carrying that page's page number and only the portion of the turn's text found on that \
-page. A turn that continues across a page break gets one chunk with multiple segments, \
-not two chunks.
-- For each chunk's speaker, extract their name, and their role/company IF stated inline \
+number of each page's text. Produce one turn per continuous stretch of speech by a \
+single speaker:
+- Never split a single speaker's continuous turn into multiple turns.
+- A turn's `text` field is a list of page-tagged chunks: one chunk per physical page \
+(from the <page N> tags) that the turn's text appears on, in page order, each carrying \
+that page's page number and only the portion of the turn's text found on that page. A \
+turn that continues across a page break gets one turn with multiple chunks, not two \
+turns.
+- For each turn's speaker, extract their name, and their role/company IF stated inline \
 near the speaker label in the source text (for example "Jane Doe / Analyst, Some Bank" \
 or "JANE DOE, Some Bank:"). If no role or company is stated anywhere near that speaker's \
 label, leave them empty - do not guess. This matters most for analysts who only ever \
-appear as chunk speakers, never in an upfront roster.
+appear as turn speakers, never in an upfront roster.
 - Set `section` to "management_discussion" for the prepared-remarks portion of the call \
 and "qa" for the question-and-answer portion.
-- For chunks in the "qa" section, set `qa_type` to "question" or "answer" when you can \
+- For turns in the "qa" section, set `qa_type` to "question" or "answer" when you can \
 tell from context which one it is; leave it empty if genuinely unclear.
 - The operator/moderator introducing the call or announcing questions is a valid \
 speaker like any other.
@@ -61,6 +62,6 @@ def identity_and_participants_prompt(tagged_text: str) -> str:
     return _IDENTITY_AND_PARTICIPANTS_PROMPT.format(tagged_text=tagged_text)
 
 
-def chunk_segmentation_prompt(tagged_text: str) -> str:
-    """Builds the prompt for the full chunk-segmentation structuring call."""
-    return _CHUNK_SEGMENTATION_PROMPT.format(tagged_text=tagged_text)
+def turn_segmentation_prompt(tagged_text: str) -> str:
+    """Builds the prompt for the full turn-segmentation structuring call."""
+    return _TURN_SEGMENTATION_PROMPT.format(tagged_text=tagged_text)

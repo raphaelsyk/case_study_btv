@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     # Deferred import: earnings_calls.models imports this module, so importing it back
     # here at runtime would be circular. Only needed for static type checking.
-    from earnings_calls.models import Chunk, RawPage, Speaker
+    from earnings_calls.models import RawPage, Speaker, Turn
 
 
 def assert_participants_present(participants: Sequence['Speaker']) -> None:
@@ -21,30 +21,30 @@ def assert_participants_present(participants: Sequence['Speaker']) -> None:
     assert participants, 'transcript has no participants'
 
 
-def assert_chunks_present(chunks: Sequence['Chunk']) -> None:
-    """Fails if no dialogue chunks were extracted at all."""
-    assert chunks, 'transcript has no chunks'
+def assert_turns_present(turns: Sequence['Turn']) -> None:
+    """Fails if no dialogue turns were extracted at all."""
+    assert turns, 'transcript has no turns'
 
 
-def assert_chunk_count_plausible(chunks: Sequence['Chunk'], page_count: int) -> None:
-    """Fails if the chunk count looks wildly under-segmented relative to the page count.
+def assert_turn_count_plausible(turns: Sequence['Turn'], page_count: int) -> None:
+    """Fails if the turn count looks wildly under-segmented relative to the page count.
 
-    A rough heuristic (at least one chunk per four pages), not meant to be precise -
+    A rough heuristic (at least one turn per four pages), not meant to be precise -
     only to catch a structuring call that returned a near-empty or truncated result.
     """
     assert page_count > 0, 'transcript has no raw pages'
     min_expected = max(1, page_count // 4)
-    assert len(chunks) >= min_expected, (
-        f'only {len(chunks)} chunks for {page_count} pages, expected at least {min_expected}'
+    assert len(turns) >= min_expected, (
+        f'only {len(turns)} turns for {page_count} pages, expected at least {min_expected}'
     )
 
 
-def assert_chunk_pages_within_raw_pages(chunks: Sequence['Chunk'], raw_pages: Sequence['RawPage']) -> None:
-    """Fails if a chunk cites a page number that was never extracted."""
+def assert_turn_pages_within_raw_pages(turns: Sequence['Turn'], raw_pages: Sequence['RawPage']) -> None:
+    """Fails if a turn cites a page number that was never extracted."""
     known_pages = {page.page_no for page in raw_pages}
-    for chunk in chunks:
-        unknown = set(chunk.pages) - known_pages
-        assert not unknown, f'chunk for {chunk.speaker.name} references unknown pages: {sorted(unknown)}'
+    for turn in turns:
+        unknown = set(turn.pages) - known_pages
+        assert not unknown, f'turn for {turn.speaker.name} references unknown pages: {sorted(unknown)}'
 
 
 def normalize_speaker_name(name: str) -> str:
@@ -58,25 +58,25 @@ def normalize_speaker_name(name: str) -> str:
     return ' '.join(name.split()).casefold()
 
 
-def assert_all_speakers_known(chunks: Sequence['Chunk'], participants: Sequence['Speaker']) -> None:
-    """Fails if a chunk's speaker was not folded into the participants list.
+def assert_all_speakers_known(turns: Sequence['Turn'], participants: Sequence['Speaker']) -> None:
+    """Fails if a turn's speaker was not folded into the participants list.
 
     Guards the participant reconciliation step in TranscriptStructurer - every speaker
-    that gets a chunk must end up in `participants` (see 03_system_design_data_model.md).
+    that gets a turn must end up in `participants` (see 03_system_design_data_model.md).
     """
     known_names = {normalize_speaker_name(p.name) for p in participants}
-    unknown = {chunk.speaker.name for chunk in chunks if normalize_speaker_name(chunk.speaker.name) not in known_names}
-    assert not unknown, f'chunk speakers missing from participants: {sorted(unknown)}'
+    unknown = {turn.speaker.name for turn in turns if normalize_speaker_name(turn.speaker.name) not in known_names}
+    assert not unknown, f'turn speakers missing from participants: {sorted(unknown)}'
 
 
 def validate_transcript(
-    chunks: Sequence['Chunk'],
+    turns: Sequence['Turn'],
     participants: Sequence['Speaker'],
     raw_pages: Sequence['RawPage'],
 ) -> None:
     """Runs every plausibility check for a structured transcript, raising on the first failure."""
     assert_participants_present(participants)
-    assert_chunks_present(chunks)
-    assert_chunk_count_plausible(chunks, len(raw_pages))
-    assert_chunk_pages_within_raw_pages(chunks, raw_pages)
-    assert_all_speakers_known(chunks, participants)
+    assert_turns_present(turns)
+    assert_turn_count_plausible(turns, len(raw_pages))
+    assert_turn_pages_within_raw_pages(turns, raw_pages)
+    assert_all_speakers_known(turns, participants)
