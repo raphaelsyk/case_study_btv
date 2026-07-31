@@ -44,6 +44,7 @@ class TranscriptPipeline:
             The structured, stored Transcript.
         """
         pages = self._extractor.extract(pdf_path)
+
         transcript = self._structurer.structure(pages)
         self._grounding_checker.check(transcript)
         self._storage.save(transcript)
@@ -68,3 +69,21 @@ class TranscriptPipeline:
                 # validation failure must not stop the rest of the batch.
                 logger.exception('failed to process %s, skipping', pdf_path)
         return transcripts
+
+
+if __name__ == '__main__':
+    import shutil
+    from pathlib import Path
+
+    from llm_client import GeminiVertexClient
+    from storage.json_file_storage import JsonFileStorage
+
+    input = [Path('example_data/NVDA-Q1-2026-Earnings-Call-28-May-2025-5_00-PM-ET.pdf')]
+    output = Path('tests/tmp')
+    output.mkdir(parents=True, exist_ok=True)
+
+    pdf_paths = sorted(input)
+    pipeline = TranscriptPipeline(llm=GeminiVertexClient(), storage=JsonFileStorage(output))
+    transcripts = pipeline.run_batch(pdf_paths)
+
+    shutil.rmtree(output)
