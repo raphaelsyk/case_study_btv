@@ -10,8 +10,11 @@ You are structuring the opening pages of an earnings-call transcript.
 
 Extract:
 1. The call identity: company name, fiscal quarter label (e.g. "4Q25" or "Q1 FY2026"), \
-the call date (ISO 8601, YYYY-MM-DD), and the time range being reported on if it is \
-stated (e.g. "fourth quarter of fiscal 2026"), otherwise omit it.
+the call date (ISO 8601, YYYY-MM-DD), and the time range being reported on. The time \
+range usually needs to be inferred from the date of the call: for example, if the call \
+is on the 15th of April 2026, the reported time range is likely to be 2026-01-01 until \
+2026-03-31.
+
 2. The participant roster, IF one is explicitly listed on these pages (e.g. under a \
 "Participants", "Corporate Participants", or "Other Participants" heading). Some \
 transcripts do NOT list participants up front at all - in that case return an empty \

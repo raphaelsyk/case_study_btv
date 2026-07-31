@@ -26,13 +26,20 @@ class Speaker(BaseModel):
     company: str | None = None
 
 
+class DateRange(BaseModel):
+    """An inclusive calendar date range, e.g. the fiscal quarter an earnings call covers."""
+
+    start_date: date = Field(description='A starting date as ISO 8601, (YYYY-MM-DD)')
+    end_date: date = Field(description='An end date as ISO 8601, (YYYY-MM-DD)')
+
+
 class CallIdentity(BaseModel):
     """Identity of the earnings call: who, and for which quarter."""
 
     company: str
-    quarter: str
-    date: date
-    time_range: str | None = None
+    quarter_name: str = Field(description='The quarter that is reported on, formatted as [YYYY]_Q[Q], e.g. 2025_Q2')
+    call_date: date = Field(description='The date of the earnings call')
+    quarter_time_range: DateRange = Field(description='The timespan of the quarter discussed in the call')
 
 
 class ChunkSection(str, Enum):

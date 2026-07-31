@@ -26,7 +26,7 @@ class JsonFileStorage:
         Returns:
             The path the transcript was written to.
         """
-        path = self._path_for(transcript.identity.company, transcript.identity.quarter)
+        path = self._path_for(transcript.identity.company, transcript.identity.quarter_name)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(transcript.model_dump_json(indent=2))
         return path
