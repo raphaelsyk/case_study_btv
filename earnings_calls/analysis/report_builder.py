@@ -31,6 +31,19 @@ _SECTIONS = (
     ('commitments_outlook', 'Commitments, Outlook & Credibility'),
 )
 
+# Evidence table column widths, matching _render_evidence_table's fixed column order
+# (#, quarter, speaker, page, excerpt) - the first four sum to well under half the row
+# width, leaving most of it for the excerpt. Applied only in the PDF (see
+# _constrain_evidence_table_columns): xhtml2pdf's table renderer splits columns evenly
+# by default regardless of content, which otherwise starves the excerpt column of room
+# next to four short columns.
+_EVIDENCE_TABLE_COLUMN_WIDTHS = ('5%', '10%', '17%', '8%', '60%')
+
+# Vertical breathing room between Evidence table rows in the PDF (applied via
+# cellpadding, see _constrain_evidence_table_columns) - rows render edge-to-edge with
+# no padding by default, roughly half a row's height of gap reads comfortably.
+_EVIDENCE_TABLE_CELL_PADDING = 6
+
 
 class ReportBuilder:
     """Renders a synthesized trend report to a citation-verified markdown + PDF file."""
@@ -76,11 +89,30 @@ class ReportBuilder:
             ValueError: If PDF generation fails.
         """
         html = markdown_lib.markdown(markdown_text, extensions=['tables'])
+        html = self._constrain_evidence_table_columns(html)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with output_path.open('wb') as pdf_file:
             result = pisa.CreatePDF(html, dest=pdf_file)
         if result.err:
             raise ValueError(f'failed to render PDF for {output_path}')
+
+    @staticmethod
+    def _constrain_evidence_table_columns(html: str) -> str:
+        """Gives the Evidence table's excerpt column most of the row width, and adds
+        vertical breathing room between rows, in the PDF.
+
+        Plain HTML `width`/`cellpadding` attributes on `<table>`/`<th>` are what
+        xhtml2pdf actually respects reliably - a CSS `<colgroup>` was tried first for
+        column widths and left a large blank gap before the excerpt column instead of
+        narrowing the other four. There is exactly one table in this document (the
+        Evidence table), so replacing the first `<table>` tag and each `<th>` in
+        order - which python-markdown's `tables` extension always emits bare, with no
+        attributes - is unambiguous.
+        """
+        html = html.replace('<table>', f'<table width="100%" cellpadding="{_EVIDENCE_TABLE_CELL_PADDING}">', 1)
+        for width in _EVIDENCE_TABLE_COLUMN_WIDTHS:
+            html = html.replace('<th>', f'<th width="{width}">', 1)
+        return html
 
     def _assign_citation_numbers(
         self, report: CompanyAIExposureTrendReport, catalogue: EvidenceCatalogue
