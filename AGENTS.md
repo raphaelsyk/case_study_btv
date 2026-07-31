@@ -11,6 +11,10 @@
 - When adding or editing a public method on a class, add or update a short docstring that states what the method does. Keep it concise and use the Google Docstring format
 - Add short comments where the reason for code is not obvious from the code itself, especially for unexpected behavior, external-site quirks, or integration constraints.
 - Use `ruff` for both formatting and linting, and `ty` for type checking. Run all three before finishing: `ruff format`, `ruff check`, and `ty check`. When commands, subcommands, options, prompts, or usage examples change, update the README in the same change.
+- Do not remove code blocks that allow the user to smoke test/debug the app by entering from a module through `if __name__ == '__main__"` with the debugger. This is for example valid in the pipeline.py module.
+
+## Smoke tests
+- IMPORTANT: If you want to run an end-to-end smoke test or integration test that incorporates calls to an LLM, ask the user for approval before doing so
 
 ## Dependency management
 - Add Python dependencies with `uv add ...`. Add tooling like `ruff` as dev dependencies with `uv add --dev ...`.
