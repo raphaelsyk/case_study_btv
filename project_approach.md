@@ -3,15 +3,10 @@
 
 The main goal of this project is to develop the *Earnings-call-analyzer*, an application that supports analysts in their decision-making by extracting and evaluating a companies’ operational and financial standings, their risks & opportunities, and the commitment made by the management using earnings-call transcripts
 
-### Objectives
-
-* Develop a Data Pipeline extracting key information from unstructured earnings-calls and storing it into a suitable storage system  
-* Develop 
-
 ### Approach
 
-* Read paper ✅  
-* Exploration of raw PDFs & identification of key data fields to extract ✅  
+* Read paper "Agentic Retrieval of Topics and Insights from Earnings Calls"
+* Exploration of raw PDFs & identification of key data fields to extract 
 * System Design:  
   * Design of a suitable Data Model for storage of raw unstructured data and processed structured data that enables upstream evaluation use cases  
   * Design of a Data Extraction Pipeline  
@@ -32,8 +27,9 @@ The main goal of this project is to develop the *Earnings-call-analyzer*, an app
 
 ### Key Considerations
 
-* For this prood-of-concept, the decision-support app shall evaluate how the companies’ discuss AI over time
-* The PoC 
+* A crucial part of this project is the development of an appropriate data model to store the earnings calls transcripts in, that enables comparison between companies/quarters and is agnostic of upstream analysis apps and a pipeline application, that transforms input PDFs into this data model
+* For this proof-of-concept, the decision-support app shall evaluate how the companies’ view on AI changes over time
+
 
 ### Expected Challenges
 * PDF parsing  
