@@ -14,14 +14,14 @@ from pathlib import Path
 import pytest
 
 from earnings_calls.llm_client import GeminiVertexClient
-from earnings_calls.models import CallIdentity, DateRange, RawPage
+from earnings_calls.models import DateRange, RawPage
 from earnings_calls.structuring import prompts
 from earnings_calls.structuring.structurer import TranscriptStructurer, _IdentityAndParticipantsResponse
 
-# pytestmark = [
-#     pytest.mark.integration,
-#     pytest.mark.skipif(not os.environ.get('GOOGLE_CLOUD_PROJECT'), reason='GOOGLE_CLOUD_PROJECT not set'),
-# ]
+pytestmark = [
+    pytest.mark.integration,
+    pytest.mark.skipif(not os.environ.get('GOOGLE_CLOUD_PROJECT'), reason='GOOGLE_CLOUD_PROJECT not set'),
+]
 
 _NVIDIA_PAGES_PATH = Path(__file__).resolve().parent / 'test_data' / 'nvidia_raw_pages_12.pkl'
 
