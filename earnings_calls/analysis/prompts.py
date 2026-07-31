@@ -30,6 +30,11 @@ evidence items instead of merging them.
 * If AI is not discussed at all for a given section, leave its narrative as a short \
 sentence saying so (e.g. "AI is not discussed in this section this quarter") and \
 leave its evidence list empty - do not fabricate evidence to fill a section.
+* In narrative text (not excerpts, which must stay verbatim), never use a double \
+quotation mark (") - if you want to quote a word or short phrase, use single quotes \
+(') instead, since an unescaped double quote inside a JSON string breaks the \
+response. If an excerpt itself contains a double quote, copy it exactly as spoken \
+and make sure the surrounding JSON stays valid.
 * Your tone should be professional, objective, and concise.
 
 {questions}
@@ -203,6 +208,9 @@ existing evidence by id only. A claim may cite zero, one, or several ids.
 * A quarter marked "Evidence: none" for a section can still be the subject of a claim \
 (e.g. noting AI wasn't discussed that quarter, or reappeared the following quarter).
 * Order claims chronologically within each section where relevant.
+* Never use a double quotation mark (") inside a claim's `text` - if you want to \
+quote a word or short phrase, use single quotes (') instead, since an unescaped \
+double quote inside a JSON string breaks the response.
 
 Per-quarter distilled analyses, oldest first:
 
