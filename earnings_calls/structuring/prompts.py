@@ -1,0 +1,61 @@
+"""Prompt templates for the two-call transcript structuring step.
+
+See the "Structuring" and "Two structuring calls" decisions in
+system_design/02_system_design.md for why there are two calls and why pages are tagged
+with <page N>...</page N> delimiters.
+"""
+
+_IDENTITY_AND_PARTICIPANTS_PROMPT = """\
+You are structuring the opening pages of an earnings-call transcript.
+
+Extract:
+1. The call identity: company name, fiscal quarter label (e.g. "4Q25" or "Q1 FY2026"), \
+the call date (ISO 8601, YYYY-MM-DD), and the time range being reported on if it is \
+stated (e.g. "fourth quarter of fiscal 2026"), otherwise omit it.
+2. The participant roster, IF one is explicitly listed on these pages (e.g. under a \
+"Participants", "Corporate Participants", or "Other Participants" heading). Some \
+transcripts do NOT list participants up front at all - in that case return an empty \
+list. Do not guess or infer participants from prose; only extract an explicit list.
+
+For each participant, capture their name and, if stated, their role and company.
+
+Pages (delimited by <page N>...</page N> tags, matching physical PDF page numbers):
+
+{tagged_text}
+"""
+
+_CHUNK_SEGMENTATION_PROMPT = """\
+You are segmenting a full earnings-call transcript into individual speaker turns.
+
+The transcript is delimited by <page N>...</page N> tags giving the physical PDF page \
+number of each page's text. Produce one chunk per continuous turn by a single speaker:
+- Never split a single speaker's continuous turn into multiple chunks.
+- A chunk's `pages` field must list every physical page number (from the <page N> tags) \
+that the turn's text appears on, in order. A turn that continues across a page break \
+gets one chunk listing multiple pages, not two chunks.
+- For each chunk's speaker, extract their name, and their role/company IF stated inline \
+near the speaker label in the source text (for example "Jane Doe / Analyst, Some Bank" \
+or "JANE DOE, Some Bank:"). If no role or company is stated anywhere near that speaker's \
+label, leave them empty - do not guess. This matters most for analysts who only ever \
+appear as chunk speakers, never in an upfront roster.
+- Set `section` to "management_discussion" for the prepared-remarks portion of the call \
+and "qa" for the question-and-answer portion.
+- For chunks in the "qa" section, set `qa_type` to "question" or "answer" when you can \
+tell from context which one it is; leave it empty if genuinely unclear.
+- The operator/moderator introducing the call or announcing questions is a valid \
+speaker like any other.
+
+Pages:
+
+{tagged_text}
+"""
+
+
+def identity_and_participants_prompt(tagged_text: str) -> str:
+    """Builds the prompt for the call-identity + participant-roster structuring call."""
+    return _IDENTITY_AND_PARTICIPANTS_PROMPT.format(tagged_text=tagged_text)
+
+
+def chunk_segmentation_prompt(tagged_text: str) -> str:
+    """Builds the prompt for the full chunk-segmentation structuring call."""
+    return _CHUNK_SEGMENTATION_PROMPT.format(tagged_text=tagged_text)
