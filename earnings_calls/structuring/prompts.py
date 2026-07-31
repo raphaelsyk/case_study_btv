@@ -33,9 +33,11 @@ You are segmenting a full earnings-call transcript into individual speaker turns
 The transcript is delimited by <page N>...</page N> tags giving the physical PDF page \
 number of each page's text. Produce one chunk per continuous turn by a single speaker:
 - Never split a single speaker's continuous turn into multiple chunks.
-- A chunk's `pages` field must list every physical page number (from the <page N> tags) \
-that the turn's text appears on, in order. A turn that continues across a page break \
-gets one chunk listing multiple pages, not two chunks.
+- A chunk's `text` field is a list of page-tagged segments: one segment per physical \
+page (from the <page N> tags) that the turn's text appears on, in page order, each \
+carrying that page's page number and only the portion of the turn's text found on that \
+page. A turn that continues across a page break gets one chunk with multiple segments, \
+not two chunks.
 - For each chunk's speaker, extract their name, and their role/company IF stated inline \
 near the speaker label in the source text (for example "Jane Doe / Analyst, Some Bank" \
 or "JANE DOE, Some Bank:"). If no role or company is stated anywhere near that speaker's \

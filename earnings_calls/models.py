@@ -6,7 +6,7 @@ See system_design/03_system_design_data_model.md for the design rationale.
 from datetime import date
 from enum import Enum
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, computed_field, model_validator
 
 from earnings_calls.validation.checks import validate_transcript
 
@@ -56,17 +56,38 @@ class QAType(str, Enum):
     ANSWER = 'answer'
 
 
+class ChunkSegment(BaseModel):
+    """One page's worth of a chunk's text, so a turn's text stays anchored to its exact
+    source page even when a turn spans several pages (docling's page_range numbering).
+    """
+
+    page_no: int = Field(ge=1, description='Physical PDF page this segment is on, matching a <page N> tag')
+    text: str
+    is_grounded: bool | None = None
+
+
 class Chunk(BaseModel):
-    """One continuous speaker turn. Never split at a page boundary — `pages` lists every
-    physical PDF page (docling's page_range numbering) the turn touches.
+    """One continuous speaker turn. Never split at a page boundary — `text` lists one
+    segment per physical PDF page the turn touches, in order.
     """
 
     speaker: Speaker
-    pages: list[int] = Field(min_length=1)
-    text: str
+    text: list[ChunkSegment] = Field(min_length=1)
     section: ChunkSection
     qa_type: QAType | None = None
-    is_grounded: bool | None = None
+
+    @computed_field
+    @property
+    def pages(self) -> list[int]:
+        """Every physical page this chunk's turn touches, in order."""
+        return [segment.page_no for segment in self.text]
+
+    @computed_field
+    @property
+    def is_grounded(self) -> bool | None:
+        """None until grounding-checked; else True only if every segment is grounded."""
+        statuses = [segment.is_grounded for segment in self.text]
+        return None if any(status is None for status in statuses) else all(statuses)
 
 
 class Transcript(BaseModel):
