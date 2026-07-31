@@ -44,6 +44,27 @@ class JsonFileStorage:
         path = self._path_for(company, quarter)
         return Transcript.model_validate_json(path.read_text())
 
+    def list_quarters(self, company: str) -> list[str]:
+        """Lists every quarter with a stored transcript for `company`, chronologically.
+
+        Args:
+            company: Company name as originally stored (slugified the same way as save).
+
+        Returns:
+            Canonical `identity.quarter_name` values (e.g. "2025_Q2"), sorted - reads
+            each file's own quarter_name rather than trusting the slugified filename
+            stem, since slugifying is lossy (lowercases, strips punctuation) and the
+            canonical form is what callers want for display/sorting.
+        """
+        company_dir = self._root / self._slugify(company)
+        if not company_dir.is_dir():
+            return []
+        quarter_names = [
+            Transcript.model_validate_json(path.read_text()).identity.quarter_name
+            for path in company_dir.glob('*.json')
+        ]
+        return sorted(quarter_names)
+
     def _path_for(self, company: str, quarter: str) -> Path:
         """Builds the on-disk path for a company/quarter, slugified for filesystem safety."""
         return self._root / self._slugify(company) / f'{self._slugify(quarter)}.json'

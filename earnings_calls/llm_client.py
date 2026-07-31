@@ -63,6 +63,7 @@ class GeminiVertexClient:
             project=resolved_project,
             location=resolved_location,
         )
+        self._thinking_config = self._minimal_thinking_config(self._model)
 
     def generate_structured(self, prompt: str, response_schema: type[ModelT]) -> ModelT:
         """Runs `prompt` through Gemini and parses the response into `response_schema`.
@@ -83,7 +84,7 @@ class GeminiVertexClient:
             config=types.GenerateContentConfig(
                 response_mime_type='application/json',
                 response_schema=response_schema,
-                thinking_config=types.ThinkingConfig(thinking_level='minimal'),
+                thinking_config=self._thinking_config,
             ),
         )
         if response.parsed is None:
@@ -91,3 +92,22 @@ class GeminiVertexClient:
         # google-genai types `.parsed` broadly (BaseModel | dict | Enum) since response_schema
         # accepts more than just pydantic models; we only ever pass pydantic model classes.
         return typing.cast(response_schema, response.parsed)
+
+    @staticmethod
+    def _minimal_thinking_config(model: str) -> types.ThinkingConfig | None:
+        """Builds the lowest-effort thinking config for `model`'s generation family.
+
+        Gemini 3.x models take `thinking_level`; Gemini 2.5 models take the older
+        `thinking_budget` (an integer token budget) instead - sending `thinking_level`
+        to a 2.5 model is a 400 INVALID_ARGUMENT (observed against gemini-2.5-pro, this
+        module's own DEFAULT_MODEL). 128 is the lowest budget Gemini 2.5 Pro accepts
+        (unlike 2.5 Flash, 2.5 Pro can't fully disable thinking via budget 0); reusing
+        128 for the whole 2.5 family keeps this simple rather than branching pro vs
+        flash. An unrecognized model family gets no thinking config at all, deferring
+        to that model's own default.
+        """
+        if model.startswith('gemini-3'):
+            return types.ThinkingConfig(thinking_level='minimal')
+        if model.startswith('gemini-2.5'):
+            return types.ThinkingConfig(thinking_budget=128)
+        return None
