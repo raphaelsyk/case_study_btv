@@ -6,25 +6,14 @@ transcript text - and may only cite existing evidence by id, never retype excerp
 text. See the "Analyzer Module" decision in system_design/02_system_design.md.
 """
 
-from pydantic import BaseModel
-
 from earnings_calls.analysis import prompts
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
-from earnings_calls.analysis.models import CompanyAIExposureTrendReport, QuarterAIAnalysis, TrendSection
+from earnings_calls.analysis.models import (
+    CompanyAIExposureTrendReport,
+    QuarterAIAnalysis,
+    SynthesizeResponse,
+)
 from earnings_calls.llm_client import LLMClient
-
-
-class _SynthesizeResponse(BaseModel):
-    """Response shape for the stage-2 synthesize call.
-
-    `company`/`quarters_covered` are set afterward, deterministically, from the input
-    quarters rather than trusted to the LLM - see `TrendSynthesizer.synthesize`.
-    """
-
-    framing: TrendSection
-    operations_summary: TrendSection
-    context: TrendSection
-    commitments_outlook: TrendSection
 
 
 class TrendSynthesizer:
@@ -55,7 +44,7 @@ class TrendSynthesizer:
             quarter_names=quarter_names,
             catalogue_text=catalogue.render_for_prompt(),
         )
-        response = self._llm.generate_structured(prompt, _SynthesizeResponse)
+        response = self._llm.generate_structured(prompt, SynthesizeResponse)
         report = CompanyAIExposureTrendReport(
             company=quarters[0].company,
             quarters_covered=quarter_names,

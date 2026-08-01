@@ -44,6 +44,20 @@ class QuarterAIAnalysis(BaseModel):
     commitments_outlook: AnalysisSection
 
 
+class DistillResponse(BaseModel):
+    """Response shape for the stage-1 distill call.
+
+    `company`/`quarter_name` and each evidence item's `quarter_name` are set
+    afterward, deterministically, from the source Transcript rather than trusted to
+    the LLM - see `QuarterDistiller.distill`.
+    """
+
+    framing: AnalysisSection
+    operations_summary: AnalysisSection
+    context: AnalysisSection
+    commitments_outlook: AnalysisSection
+
+
 class TrendClaim(BaseModel):
     """One statement about how a dimension of the AI discussion changed across quarters."""
 
@@ -62,6 +76,19 @@ class CompanyAIExposureTrendReport(BaseModel):
 
     company: str
     quarters_covered: list[str]
+    framing: TrendSection
+    operations_summary: TrendSection
+    context: TrendSection
+    commitments_outlook: TrendSection
+
+
+class SynthesizeResponse(BaseModel):
+    """Response shape for the stage-2 synthesize call.
+
+    `company`/`quarters_covered` are set afterward, deterministically, from the input
+    quarters rather than trusted to the LLM - see `TrendSynthesizer.synthesize`.
+    """
+
     framing: TrendSection
     operations_summary: TrendSection
     context: TrendSection
