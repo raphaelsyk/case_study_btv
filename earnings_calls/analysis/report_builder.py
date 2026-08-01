@@ -1,15 +1,7 @@
-"""Deterministic (no-LLM) rendering of a CompanyAIExposureTrendReport to markdown/PDF.
+"""Renders a synthesized AI-discussion trend report to markdown and PDF.
 
-Resolves every TrendClaim's `evidence_refs` against the EvidenceCatalogue it was
-synthesized from - this is where "citation verification" (the Analyzer responsibility
-named in system_design/02_system_design.md) is actually enforced: an id that doesn't
-resolve is dropped and logged, never silently rendered as if it were real.
-
-The internal catalogue id (e.g. "2026_Q2#framing#0") is what stage 2 cites and what
-resolve() checks against - it's built for machine correctness, not for a reader. The
-rendered report never shows it: each resolved id is assigned a short sequential
-footnote number (in first-appearance order) purely for display, the same way the
-original hand-authored single-quarter report used numbered footnotes.
+Resolves each claim's cited evidence ids against the evidence catalogue, drops any
+id that fails to resolve, and numbers the rest as sequential footnotes for display.
 """
 
 import logging
@@ -20,6 +12,7 @@ from xhtml2pdf import pisa
 
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
 from earnings_calls.analysis.models import CompanyAIExposureTrendReport, Evidence, TrendClaim, TrendSection
+from earnings_calls.models import Speaker
 
 logger = logging.getLogger(__name__)
 
@@ -31,17 +24,9 @@ _SECTIONS = (
     ('outlook_credibility', 'Outlook & Credibility'),
 )
 
-# Evidence table column widths, matching _render_evidence_table's fixed column order
-# (#, quarter, speaker, page, excerpt) - the first four sum to well under half the row
-# width, leaving most of it for the excerpt. Applied only in the PDF (see
-# _constrain_evidence_table_columns): xhtml2pdf's table renderer splits columns evenly
-# by default regardless of content, which otherwise starves the excerpt column of room
-# next to four short columns.
-_EVIDENCE_TABLE_COLUMN_WIDTHS = ('5%', '10%', '17%', '8%', '60%')
 
-# Vertical breathing room between Evidence table rows in the PDF (applied via
-# cellpadding, see _constrain_evidence_table_columns) - rows render edge-to-edge with
-# no padding by default, roughly half a row's height of gap reads comfortably.
+_EVIDENCE_TABLE_COLUMN_WIDTHS = ('5%', '10%', '17%', '8%', '60%')
+_SPEAKER_DETAIL_COLOR = '#999999'
 _EVIDENCE_TABLE_CELL_PADDING = 6
 
 
@@ -52,13 +37,11 @@ class ReportBuilder:
         """Renders `report` to markdown, resolving every claim's evidence against `catalogue`.
 
         Args:
-            report: The stage-2 synthesized trend report.
-            catalogue: The EvidenceCatalogue `report` was synthesized from.
+            report: The synthesized trend report to render.
+            catalogue: The evidence catalogue to resolve citations against.
 
         Returns:
-            The full markdown report text, including a footnote-style evidence table
-            listing only the evidence actually cited by a resolved claim, numbered
-            [1], [2], ... in first-appearance order rather than by internal catalogue id.
+            The full markdown report text, including a footnote-style evidence table.
         """
         numbers, used_evidence = self._assign_citation_numbers(report, catalogue)
         lines = [
@@ -98,17 +81,8 @@ class ReportBuilder:
 
     @staticmethod
     def _constrain_evidence_table_columns(html: str) -> str:
-        """Gives the Evidence table's excerpt column most of the row width, and adds
-        vertical breathing room between rows, in the PDF.
-
-        Plain HTML `width`/`cellpadding` attributes on `<table>`/`<th>` are what
-        xhtml2pdf actually respects reliably - a CSS `<colgroup>` was tried first for
-        column widths and left a large blank gap before the excerpt column instead of
-        narrowing the other four. There is exactly one table in this document (the
-        Evidence table), so replacing the first `<table>` tag and each `<th>` in
-        order - which python-markdown's `tables` extension always emits bare, with no
-        attributes - is unambiguous.
-        """
+        """Sets the Evidence table's column widths and row padding for the PDF render."""
+        # xhtml2pdf ignores CSS colgroups for column widths, so set plain HTML attributes instead.
         html = html.replace('<table>', f'<table width="100%" cellpadding="{_EVIDENCE_TABLE_CELL_PADDING}">', 1)
         for width in _EVIDENCE_TABLE_COLUMN_WIDTHS:
             html = html.replace('<th>', f'<th width="{width}">', 1)
@@ -117,19 +91,12 @@ class ReportBuilder:
     def _assign_citation_numbers(
         self, report: CompanyAIExposureTrendReport, catalogue: EvidenceCatalogue
     ) -> tuple[dict[str, int], dict[str, Evidence]]:
-        """Walks every claim in report order, resolving each evidence id exactly once.
-
-        The first time an id resolves it gets the next sequential display number
-        (1, 2, 3, ...) - this is what lets the rendered report use short numeric
-        footnotes instead of the internal catalogue id. An id that fails to resolve
-        (the model hallucinated an id it wasn't given, or cited ungrounded evidence -
-        see EvidenceCatalogue.resolve) is logged once and never numbered, so it can
-        never appear in the rendered report as if it were a real citation.
+        """Resolves every claim's cited evidence ids and assigns sequential display numbers.
 
         Returns:
-            `(numbers, used_evidence)`: `numbers` maps catalogue id -> display number
-            for every id that resolved; `used_evidence` maps the same ids to their
-            Evidence, in the same first-appearance order, for the evidence table.
+            `(numbers, used_evidence)`: `numbers` maps an evidence id to its display
+            number; `used_evidence` maps the same ids to their Evidence. Both are in
+            first-appearance order and include only ids that resolved successfully.
         """
         numbers: dict[str, int] = {}
         used_evidence: dict[str, Evidence] = {}
@@ -150,12 +117,7 @@ class ReportBuilder:
         return numbers, used_evidence
 
     def _render_claim(self, claim: TrendClaim, numbers: dict[str, int]) -> str:
-        """Renders one claim as a bullet with a numeric footnote marker per cited id.
-
-        Markers are the ids' assigned display numbers (see `_assign_citation_numbers`),
-        deduplicated and sorted ascending so multiple citations on one claim read left
-        to right in footnote order regardless of the order the model listed them in.
-        """
+        """Renders one claim as a bullet with a numeric footnote marker per cited id."""
         marker_numbers = sorted({numbers[evidence_id] for evidence_id in claim.evidence_refs if evidence_id in numbers})
         suffix = f' {"".join(f"[{n}]" for n in marker_numbers)}' if marker_numbers else ''
         return f'- {claim.text}{suffix}'
@@ -166,8 +128,17 @@ class ReportBuilder:
             return '_No evidence cited._'
         rows = ['| # | quarter | speaker | page | excerpt |', '|---|---|---|---|---|']
         rows.extend(
-            f'| [{numbers[evidence_id]}] | {evidence.quarter_name} | {evidence.speaker.name} | '
+            f'| [{numbers[evidence_id]}] | {evidence.quarter_name} | {self._render_speaker_cell(evidence.speaker)} | '
             f'{evidence.page_no} | {evidence.excerpt} |'
             for evidence_id, evidence in used_evidence.items()
         )
         return '\n'.join(rows)
+
+    @staticmethod
+    def _render_speaker_cell(speaker: Speaker) -> str:
+        """Renders a speaker's name, with role/company on a light-grey line underneath if known."""
+        detail = ', '.join(part for part in (speaker.role, speaker.company) if part)
+        if not detail:
+            return speaker.name
+        # Raw HTML inside a markdown table cell passes through to the rendered PDF unchanged.
+        return f'{speaker.name}<br><span style="color: {_SPEAKER_DETAIL_COLOR};">{detail}</span>'
