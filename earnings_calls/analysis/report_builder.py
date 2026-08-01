@@ -25,9 +25,14 @@ _SECTIONS = (
 )
 
 
-_EVIDENCE_TABLE_COLUMN_WIDTHS = ('5%', '10%', '17%', '8%', '60%')
-_SPEAKER_DETAIL_COLOR = '#999999'
+_EVIDENCE_TABLE_COLUMN_WIDTHS = ('5%', '10%', '4%', '21%', '60%')
+_MUTED_TEXT_COLOR = '#999999'
+_SPEAKER_DETAIL_FONT_SIZE = '6pt'
 _EVIDENCE_TABLE_CELL_PADDING = 6
+
+_LOGO_PATH = Path(__file__).resolve().parents[2] / 'src' / 'logo.svg'
+_LOGO_WIDTH_PX = 140
+_DISCLAIMER_TEXT = 'AI generated -- for internal use only.'
 
 
 class ReportBuilder:
@@ -45,7 +50,7 @@ class ReportBuilder:
         """
         numbers, used_evidence = self._assign_citation_numbers(report, catalogue)
         lines = [
-            f'# {report.company}: AI-Discussion Trend Report',
+            self._render_header(report.company),
             '',
             f'Quarters covered: {", ".join(report.quarters_covered)}',
             '',
@@ -78,6 +83,25 @@ class ReportBuilder:
             result = pisa.CreatePDF(html, dest=pdf_file)
         if result.err:
             raise ValueError(f'failed to render PDF for {output_path}')
+
+    @staticmethod
+    def _render_header(company: str) -> str:
+        """Renders the title and disclaimer beside a top-right logo.
+
+        A borderless two-cell table, not `float`, places the logo - xhtml2pdf doesn't
+        honor CSS float, but reliably lays out tables (see `_constrain_evidence_table_columns`).
+        """
+        return (
+            '<table style="width: 100%; border: none;"><tr>'
+            '<td style="border: none; vertical-align: top; text-align: left;">'
+            f'<h1>{company}: AI-Discussion Trend Report</h1>'
+            f'<p style="color: {_MUTED_TEXT_COLOR};">{_DISCLAIMER_TEXT}</p>'
+            '</td>'
+            f'<td style="border: none; vertical-align: top; text-align: right; width: {_LOGO_WIDTH_PX + 20}px;">'
+            f'<img src="{_LOGO_PATH.as_posix()}" alt="logo" width="{_LOGO_WIDTH_PX}" />'
+            '</td>'
+            '</tr></table>'
+        )
 
     @staticmethod
     def _constrain_evidence_table_columns(html: str) -> str:
@@ -126,10 +150,10 @@ class ReportBuilder:
         """Renders the footnote-style evidence table, numbered to match the claim markers."""
         if not used_evidence:
             return '_No evidence cited._'
-        rows = ['| # | quarter | speaker | page | excerpt |', '|---|---|---|---|---|']
+        rows = ['| # | quarter | page | speaker | excerpt |', '|---|---|---|---|---|']
         rows.extend(
-            f'| [{numbers[evidence_id]}] | {evidence.quarter_name} | {self._render_speaker_cell(evidence.speaker)} | '
-            f'{evidence.page_no} | {evidence.excerpt} |'
+            f'| [{numbers[evidence_id]}] | {evidence.quarter_name} | {evidence.page_no} | '
+            f'{self._render_speaker_cell(evidence.speaker)} | {evidence.excerpt} |'
             for evidence_id, evidence in used_evidence.items()
         )
         return '\n'.join(rows)
@@ -141,4 +165,5 @@ class ReportBuilder:
         if not detail:
             return speaker.name
         # Raw HTML inside a markdown table cell passes through to the rendered PDF unchanged.
-        return f'{speaker.name}<br><span style="color: {_SPEAKER_DETAIL_COLOR};">{detail}</span>'
+        detail_style = f'color: {_MUTED_TEXT_COLOR}; font-size: {_SPEAKER_DETAIL_FONT_SIZE}; font-weight: bold;'
+        return f'{speaker.name}<br><span style="{detail_style}">{detail}</span>'
