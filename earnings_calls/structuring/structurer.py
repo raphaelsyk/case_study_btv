@@ -9,8 +9,6 @@ from earnings_calls.models import CallIdentity, RawPage, Speaker, Transcript, Tu
 from earnings_calls.structuring import prompts
 from earnings_calls.validation.checks import normalize_speaker_name
 
-# First N pages sent to the identity/participants call - covers the title page plus the
-# page 2 participant roster some sources (NVDA, BAC) use.
 IDENTITY_CALL_PAGE_COUNT = 3
 
 
@@ -67,13 +65,11 @@ class TranscriptStructurer:
     def _reconcile_participants(roster: Sequence[Speaker], turns: Sequence[Turn]) -> list[Speaker]:
         """Unions the upfront roster with every distinct turn speaker.
 
-        Turn speakers missing from the roster are added, carrying whatever role/company
-        the turn-segmentation call recovered for them; roster entries who never speak
-        are kept (see the participants-reconciliation decision in
-        03_system_design_data_model.md). Matched by normalized name, since the same
-        person is often cased differently between an upfront roster (title case) and
-        inline Q&A speaker labels (often ALL CAPS) - without this, e.g. "Jane Doe" from
-        the roster and "JANE DOE" from a turn would be folded in as two different people.
+        Turn speakers missing from the roster are added; roster entries who never
+        speak are kept. Matched by normalized name, since the same person is often
+        cased differently between an upfront roster (title case) and inline Q&A
+        labels (often ALL CAPS) - e.g. "Jane Doe" vs. "JANE DOE" would otherwise
+        fold in as two people.
         """
         by_normalized_name: dict[str, Speaker] = {}
         for speaker in roster:

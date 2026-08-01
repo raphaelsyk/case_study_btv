@@ -1,11 +1,4 @@
-"""Per-page PDF text extraction via docling.
-
-Converting page-by-page (rather than whole-document) guarantees every extracted text
-block carries an unambiguous, single physical page number - see the "Extraction"
-decision in system_design/02_system_design.md for why whole-document conversion isn't
-used (docling can merge several pages, and even several speakers, into one text block
-on documents without strong paragraph-per-turn formatting).
-"""
+"""Per-page PDF text extraction via docling."""
 
 from pathlib import Path
 from typing import Protocol

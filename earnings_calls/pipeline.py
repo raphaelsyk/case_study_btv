@@ -1,9 +1,7 @@
-"""End-to-end orchestration: a PDF path -> a validated, stored Transcript.
+"""End-to-end extraction pipeline.
 
-Chains extraction -> structuring -> grounding-check -> storage. `run_batch` processes a
-directory of PDFs with per-document failure isolation, so one bad document (a failed
-Gemini call, an implausible parse) never halts the rest of the corpus - see the
-corresponding decision in system_design/02_system_design.md.
+Input: A collection of PDFs
+Output: structured Transcript stored in TranscriptStorage
 """
 
 import logging
@@ -65,8 +63,7 @@ class TranscriptPipeline:
             try:
                 transcripts.append(self.run(pdf_path))
             except Exception:
-                # Intentionally broad: a single document's extraction/structuring/
-                # validation failure must not stop the rest of the batch.
+                # Intentionally broad: one document's failure must not stop the batch.
                 logger.exception('failed to process %s, skipping', pdf_path)
         return transcripts
 

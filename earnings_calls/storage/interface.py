@@ -1,9 +1,4 @@
-"""Storage abstraction for structured transcripts.
-
-Kept decoupled from any specific backing technology (see the "Storage" decision in
-system_design/02_system_design.md) so the prototype's on-disk JSON store can later be
-swapped for a real document database without touching the pipeline or analyzer.
-"""
+"""Storage abstraction for structured transcripts."""
 
 from pathlib import Path
 from typing import Protocol

@@ -1,8 +1,7 @@
 """On-disk JSON storage for structured transcripts.
 
-Prototype storage per the "Storage" decision in system_design/02_system_design.md: one
-pydantic-validated JSON file per transcript, on-prem by default, swappable for a real
-document database later without touching the pipeline or analyzer.
+One pydantic-validated JSON file per transcript, on-prem by default, swappable for
+a real document database later without touching the pipeline or analyzer.
 """
 
 import re
@@ -51,10 +50,9 @@ class JsonFileStorage:
             company: Company name as originally stored (slugified the same way as save).
 
         Returns:
-            Canonical `identity.quarter_name` values (e.g. "2025_Q2"), sorted - reads
-            each file's own quarter_name rather than trusting the slugified filename
-            stem, since slugifying is lossy (lowercases, strips punctuation) and the
-            canonical form is what callers want for display/sorting.
+            Canonical `identity.quarter_name` values (e.g. "2025_Q2"), sorted. Read
+            from each file's contents, not the slugified filename stem, since
+            slugifying is lossy.
         """
         company_dir = self._root / self._slugify(company)
         if not company_dir.is_dir():

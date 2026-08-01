@@ -1,9 +1,4 @@
-"""Swappable wrapper around the LLM used for transcript structuring.
-
-Any third-party LLM call goes through the `LLMClient` interface (see the provider-
-swappability requirement in system_design/01_system_requirements.md), so structuring
-logic never depends on a specific provider's SDK directly.
-"""
+"""Swappable LLM client interface and Gemini-backed implementation."""
 
 import logging
 import os
@@ -18,8 +13,6 @@ ModelT = TypeVar('ModelT', bound=BaseModel)
 
 logger = logging.getLogger(__name__)
 
-# Known-GA as of this writing; override via the GEMINI_MODEL env var or the constructor
-# if a newer model is enabled in the target GCP project.
 DEFAULT_MODEL = 'gemini-2.5-pro'
 DEFAULT_LOCATION = 'us-central1'
 
@@ -89,22 +82,17 @@ class GeminiVertexClient:
         )
         if response.parsed is None:
             raise ValueError(f'Gemini returned no parseable {response_schema.__name__} output')
-        # google-genai types `.parsed` broadly (BaseModel | dict | Enum) since response_schema
-        # accepts more than just pydantic models; we only ever pass pydantic model classes.
+        # google-genai types `.parsed` broadly; we only ever pass pydantic model classes.
         return typing.cast(response_schema, response.parsed)
 
     @staticmethod
     def _minimal_thinking_config(model: str) -> types.ThinkingConfig | None:
         """Builds the lowest-effort thinking config for `model`'s generation family.
 
-        Gemini 3.x models take `thinking_level`; Gemini 2.5 models take the older
-        `thinking_budget` (an integer token budget) instead - sending `thinking_level`
-        to a 2.5 model is a 400 INVALID_ARGUMENT (observed against gemini-2.5-pro, this
-        module's own DEFAULT_MODEL). 128 is the lowest budget Gemini 2.5 Pro accepts
-        (unlike 2.5 Flash, 2.5 Pro can't fully disable thinking via budget 0); reusing
-        128 for the whole 2.5 family keeps this simple rather than branching pro vs
-        flash. An unrecognized model family gets no thinking config at all, deferring
-        to that model's own default.
+        Gemini 3.x takes `thinking_level`; Gemini 2.5 takes the older `thinking_budget`
+        instead - mixing them up is a 400 INVALID_ARGUMENT. 128 is the lowest budget
+        Gemini 2.5 Pro accepts (it can't fully disable thinking via budget 0). An
+        unrecognized model family gets no thinking config, deferring to its default.
         """
         if model.startswith('gemini-3'):
             return types.ThinkingConfig(thinking_level='minimal')

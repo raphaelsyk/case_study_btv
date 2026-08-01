@@ -3,8 +3,7 @@
 Usage:
     uv run python -m earnings_calls.analyze_cli jpmorganchase --storage output/structured
 
-Requires GOOGLE_CLOUD_PROJECT (and optionally GOOGLE_CLOUD_LOCATION, GEMINI_MODEL) to be
-set - see earnings_calls.llm_client.GeminiVertexClient.
+Requires the following environment variables to be set: GOOGLE_CLOUD_PROJECT, GOOGLE_CLOUD_LOCATION, GEMINI_MODEL
 """
 
 import argparse

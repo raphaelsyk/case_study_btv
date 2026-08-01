@@ -1,8 +1,7 @@
 """Shared plausibility checks for a structured transcript.
 
-Used both as Transcript's pydantic validator (earnings_calls.models) and directly in
-pytest regression tests, so a parsing regression is caught the same way in both places
-instead of only being checked once in CI and never again at real pipeline runtime.
+Used both as Transcript's pydantic validator and directly in pytest regression
+tests, so a parsing regression is caught the same way in both places.
 """
 
 from __future__ import annotations
@@ -11,8 +10,7 @@ from collections.abc import Sequence
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    # Deferred import: earnings_calls.models imports this module, so importing it back
-    # here at runtime would be circular. Only needed for static type checking.
+    # Avoids a circular import: earnings_calls.models imports this module.
     from earnings_calls.models import RawPage, Speaker, Turn
 
 
@@ -50,10 +48,8 @@ def assert_turn_pages_within_raw_pages(turns: Sequence['Turn'], raw_pages: Seque
 def normalize_speaker_name(name: str) -> str:
     """Collapses whitespace and case so e.g. "JANE DOE" and "Jane Doe" compare equal.
 
-    Sources format the same speaker's name differently between an upfront roster
-    (usually title case) and inline Q&A labels (often ALL CAPS) - see
-    TranscriptStructurer._reconcile_participants, which relies on this same
-    normalization to avoid folding one person into two participant entries.
+    Used by TranscriptStructurer._reconcile_participants to avoid folding one
+    person into two participant entries due to inconsistent casing across sources.
     """
     return ' '.join(name.split()).casefold()
 
@@ -61,8 +57,8 @@ def normalize_speaker_name(name: str) -> str:
 def assert_all_speakers_known(turns: Sequence['Turn'], participants: Sequence['Speaker']) -> None:
     """Fails if a turn's speaker was not folded into the participants list.
 
-    Guards the participant reconciliation step in TranscriptStructurer - every speaker
-    that gets a turn must end up in `participants` (see 03_system_design_data_model.md).
+    Guards the participant reconciliation step in TranscriptStructurer - every
+    speaker that gets a turn must end up in `participants`.
     """
     known_names = {normalize_speaker_name(p.name) for p in participants}
     unknown = {turn.speaker.name for turn in turns if normalize_speaker_name(turn.speaker.name) not in known_names}

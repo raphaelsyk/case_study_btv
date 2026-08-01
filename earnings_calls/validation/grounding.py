@@ -1,18 +1,15 @@
-"""Deterministic self-check that a piece of text is actually grounded in the raw page
-it claims to come from.
+"""Deterministic self-check that a piece of text is grounded in the raw page it
+claims to come from.
 
-Because extraction (docling) and structuring (the LLM) are independent steps using
-independent techniques, a chunk's text can be checked against the raw text docling
-extracted for the same page - catching LLM paraphrasing/hallucination without a human
-reviewer. Checking is per page chunk rather than per whole turn, since concatenating
-every page a turn touches into one blob before diffing could mask a chunk that was
-attributed to the wrong page. A failed check flags the chunk; it never drops it or
-blocks storage (see the "Grounding check" decision in system_design/02_system_design.md).
+Compares each chunk against the raw text docling extracted for the same page,
+catching LLM paraphrasing/hallucination without a human reviewer. Checked per
+page chunk, not per whole turn, so a chunk attributed to the wrong page can't
+hide inside a concatenated blob. A failed check flags the chunk; it is never
+dropped or blocked from storage.
 
-`check_evidence_grounding` reuses the same matching primitive for the Analyzer's stage-1
-evidence excerpts (see the "Analyzer Module" decision in system_design/02_system_design.md)
-without this module depending on that downstream schema - it's typed structurally
-(`_GroundableExcerpt`) rather than importing `earnings_calls.analysis.models.Evidence`.
+`check_evidence_grounding` reuses the same matching primitive for the Analyzer's
+evidence excerpts, typed structurally (`_GroundableExcerpt`) rather than
+importing that downstream schema directly.
 """
 
 from collections.abc import Sequence
@@ -21,9 +18,8 @@ from typing import Protocol
 
 from earnings_calls.models import Chunk, RawPage, Transcript
 
-# Fraction of a chunk's (normalized) characters that must appear as matching blocks in
-# its claimed page's raw text. Generous rather than strict: normalization differences
-# (whitespace, minor formatting) shouldn't trip this, gross paraphrasing/fabrication should.
+# Fraction of a chunk's normalized characters that must match its claimed page's raw
+# text. Generous by design: only gross paraphrasing/fabrication should trip this.
 _MATCH_THRESHOLD = 0.6
 
 

@@ -1,8 +1,5 @@
-"""Prompt templates for the two-call transcript structuring step.
-
-See the "Structuring" and "Two structuring calls" decisions in
-system_design/02_system_design.md for why there are two calls and why pages are tagged
-with <page N>...</page N> delimiters.
+"""Prompt templates for the two-call transcript structuring step: call identity +
+participant roster, then full turn segmentation.
 """
 
 _IDENTITY_AND_PARTICIPANTS_PROMPT = """\

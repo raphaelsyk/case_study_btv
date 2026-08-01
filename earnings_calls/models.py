@@ -1,7 +1,4 @@
-"""Pydantic data model for a structured earnings-call transcript.
-
-See system_design/03_system_design_data_model.md for the design rationale.
-"""
+"""Pydantic data model for a structured earnings-call transcript."""
 
 from datetime import date
 from enum import Enum
