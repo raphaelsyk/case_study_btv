@@ -144,7 +144,7 @@ class ReportBuilder:
         """Renders one claim as a bullet with a numeric footnote marker per cited id."""
         marker_numbers = sorted({numbers[evidence_id] for evidence_id in claim.evidence_refs if evidence_id in numbers})
         suffix = f' {"".join(f"[{n}]" for n in marker_numbers)}' if marker_numbers else ''
-        return f'- {claim.text}{suffix}'
+        return f'- {self._flatten_text(claim.text)}{suffix}'
 
     def _render_evidence_table(self, numbers: dict[str, int], used_evidence: dict[str, Evidence]) -> str:
         """Renders the footnote-style evidence table, numbered to match the claim markers."""
@@ -153,7 +153,7 @@ class ReportBuilder:
         rows = ['| # | quarter | page | speaker | excerpt |', '|---|---|---|---|---|']
         rows.extend(
             f'| [{numbers[evidence_id]}] | {evidence.quarter_name} | {evidence.page_no} | '
-            f'{self._render_speaker_cell(evidence.speaker)} | {evidence.excerpt} |'
+            f'{self._render_speaker_cell(evidence.speaker)} | {self._flatten_text(evidence.excerpt)} |'
             for evidence_id, evidence in used_evidence.items()
         )
         return '\n'.join(rows)
@@ -161,9 +161,20 @@ class ReportBuilder:
     @staticmethod
     def _render_speaker_cell(speaker: Speaker) -> str:
         """Renders a speaker's name, with role/company on a light-grey line underneath if known."""
+        name = ReportBuilder._flatten_text(speaker.name)
         detail = ', '.join(part for part in (speaker.role, speaker.company) if part)
         if not detail:
-            return speaker.name
+            return name
         # Raw HTML inside a markdown table cell passes through to the rendered PDF unchanged.
         detail_style = f'color: {_MUTED_TEXT_COLOR}; font-size: {_SPEAKER_DETAIL_FONT_SIZE}; font-weight: bold;'
-        return f'{speaker.name}<br><span style="{detail_style}">{detail}</span>'
+        return f'{name}<br><span style="{detail_style}">{ReportBuilder._flatten_text(detail)}</span>'
+
+    @staticmethod
+    def _flatten_text(text: str) -> str:
+        """Collapses whitespace (incl. newlines) to single spaces and escapes `|`.
+
+        LLM-generated text can contain a blank line (e.g. a multi-paragraph quoted
+        question) or a literal `|` - either one corrupts a markdown table/list row,
+        which must stay on a single line with exactly its own column count.
+        """
+        return ' '.join(text.split()).replace('|', '\\|')

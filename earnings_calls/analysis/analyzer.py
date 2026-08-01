@@ -122,7 +122,7 @@ def _render_evidence_table(evidence_items: list[Evidence]) -> str:
     rows = ['| # | Grounded | Page | Speaker | Excerpt |', '|---|---|---|---|---|']
     rows.extend(
         f'| {index} | {_grounded_label(evidence.is_grounded)} | {evidence.page_no} | '
-        f'{evidence.speaker.name} | {evidence.excerpt} |'
+        f'{_flatten_text(evidence.speaker.name)} | {_flatten_text(evidence.excerpt)} |'
         for index, evidence in enumerate(evidence_items, start=1)
     )
     return '\n'.join(rows)
@@ -133,6 +133,16 @@ def _grounded_label(is_grounded: bool | None) -> str:
     if is_grounded is None:
         return 'unchecked'
     return 'yes' if is_grounded else 'no'
+
+
+def _flatten_text(text: str) -> str:
+    """Collapses whitespace (incl. newlines) to single spaces and escapes `|`.
+
+    LLM-generated text can contain a blank line (e.g. a multi-paragraph quoted
+    question) or a literal `|` - either one corrupts a markdown table row, which
+    must stay on a single line with exactly its own column count.
+    """
+    return ' '.join(text.split()).replace('|', '\\|')
 
 
 if __name__ == '__main__':
