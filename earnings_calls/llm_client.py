@@ -13,9 +13,6 @@ ModelT = TypeVar('ModelT', bound=BaseModel)
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL = 'gemini-2.5-pro'
-DEFAULT_LOCATION = 'us-central1'
-
 
 class LLMClient(Protocol):
     """Provider-agnostic interface for structured-output LLM calls."""
@@ -38,13 +35,15 @@ class GeminiVertexClient:
 
         Args:
             project: GCP project id. Falls back to the GOOGLE_CLOUD_PROJECT env var.
-            location: Vertex AI region. Falls back to GOOGLE_CLOUD_LOCATION, then
-                DEFAULT_LOCATION.
-            model: Gemini model id. Falls back to GEMINI_MODEL, then DEFAULT_MODEL.
+            location: Vertex AI region. Falls back to the GOOGLE_CLOUD_LOCATION env var.
+            model: Gemini model id. Falls back to the GEMINI_MODEL env var.
+
+        Raises:
+            KeyError: If an argument is omitted and its env var is not set.
         """
-        self._model = model or os.environ.get('GEMINI_MODEL', DEFAULT_MODEL)
+        self._model = model or os.environ['GEMINI_MODEL']
         resolved_project = project or os.environ['GOOGLE_CLOUD_PROJECT']
-        resolved_location = os.environ.get('GOOGLE_CLOUD_LOCATION', DEFAULT_LOCATION)
+        resolved_location = location or os.environ['GOOGLE_CLOUD_LOCATION']
         logger.info(
             'Configuring GeminiVertexClient: model=%s, project=%s, location=%s',
             self._model,
