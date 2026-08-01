@@ -3,6 +3,22 @@
 Data pipeline for evaluating earnings calls. See `system_design/` for the system
 requirements, architecture decisions, and data model behind this implementation.
 
+## Repository Structure
+
+```
+.
+├── earnings_calls/      # The Python package - pipeline + Analyzer (see below)
+├── tests/               # Pytest suite, mirrors earnings_calls/ 1:1
+├── system_design/       # Requirements, architecture decisions, data model docs
+├── docs/reference/      # Background reading (case-study brief, reference paper)
+├── assets/              # Static assets (report logo)
+├── pyproject.toml       # Project metadata, dependencies, tool config
+├── ruff.toml            # Linter/formatter rules
+├── AGENTS.md            # Repository rules for coding agents
+├── project_approach.md  # Case-study brief: goal, approach, deliverables, timeline
+└── README.md            # This file
+```
+
 ## Setup
 
 ### Requirements
