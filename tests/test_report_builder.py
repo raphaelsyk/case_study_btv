@@ -3,7 +3,7 @@
 Focused on two things: (1) citation verification - a claim's evidence_refs are only
 ever rendered when they resolve against the EvidenceCatalogue they were synthesized
 from; (2) display numbering - the rendered report never leaks the internal catalogue
-id (e.g. "2025_Q1#framing#0"), only a short sequential [1], [2], ... footnote number.
+id (e.g. "2025_Q1#framing#0#0"), only a short sequential [1], [2], ... footnote number.
 """
 
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
@@ -12,6 +12,7 @@ from earnings_calls.analysis.models import (
     CompanyAIExposureTrendReport,
     Evidence,
     QuarterAIAnalysis,
+    QuestionAnswer,
     TrendClaim,
     TrendSection,
 )
@@ -25,14 +26,15 @@ def _quarter_with_evidence(quarter_name: str, excerpt: str, is_grounded: bool | 
     evidence = Evidence(
         quarter_name=quarter_name, page_no=3, speaker=_SPEAKER, excerpt=excerpt, is_grounded=is_grounded
     )
-    empty = AnalysisSection(narrative='not discussed')
+    empty = AnalysisSection(answers=[])
+    answer = QuestionAnswer(question='How is AI framed?', answer='framing narrative', evidence=[evidence])
     return QuarterAIAnalysis(
         company='Test Co',
         quarter_name=quarter_name,
-        framing=AnalysisSection(narrative='framing narrative', evidence=[evidence]),
-        operations_summary=empty,
-        context=empty,
-        commitments_outlook=empty,
+        framing=AnalysisSection(answers=[answer]),
+        execution_investment=empty,
+        competitive_landscape=empty,
+        outlook_credibility=empty,
     )
 
 
@@ -42,16 +44,16 @@ def _report(claims: list[TrendClaim]) -> CompanyAIExposureTrendReport:
         company='Test Co',
         quarters_covered=['2025_Q1'],
         framing=TrendSection(claims=claims),
-        operations_summary=empty,
-        context=empty,
-        commitments_outlook=empty,
+        execution_investment=empty,
+        competitive_landscape=empty,
+        outlook_credibility=empty,
     )
 
 
 def test_claim_with_resolved_evidence_gets_a_numeric_footnote_marker_and_table_row() -> None:
     quarter = _quarter_with_evidence('2025_Q1', 'we are investing heavily in AI')
     catalogue = EvidenceCatalogue([quarter])
-    report = _report([TrendClaim(text='AI investment increased', evidence_refs=['2025_Q1#framing#0'])])
+    report = _report([TrendClaim(text='AI investment increased', evidence_refs=['2025_Q1#framing#0#0'])])
 
     markdown = ReportBuilder().render_markdown(report, catalogue)
 
@@ -59,7 +61,7 @@ def test_claim_with_resolved_evidence_gets_a_numeric_footnote_marker_and_table_r
     assert 'we are investing heavily in AI' in markdown
     assert 'Jane Doe' in markdown
     # The internal catalogue id is a machine-resolution detail, never shown to the reader.
-    assert '2025_Q1#framing#0' not in markdown
+    assert '2025_Q1#framing#0#0' not in markdown
 
 
 def test_citations_are_numbered_by_first_appearance_and_reused_across_claims() -> None:
@@ -67,8 +69,8 @@ def test_citations_are_numbered_by_first_appearance_and_reused_across_claims() -
     catalogue = EvidenceCatalogue([quarter])
     report = _report(
         [
-            TrendClaim(text='first claim', evidence_refs=['2025_Q1#framing#0']),
-            TrendClaim(text='second claim citing the same evidence', evidence_refs=['2025_Q1#framing#0']),
+            TrendClaim(text='first claim', evidence_refs=['2025_Q1#framing#0#0']),
+            TrendClaim(text='second claim citing the same evidence', evidence_refs=['2025_Q1#framing#0#0']),
         ]
     )
 
@@ -85,12 +87,12 @@ def test_claim_with_unresolved_evidence_id_drops_the_citation_silently() -> None
     # citation verification means this never reaches the rendered report as if real.
     quarter = _quarter_with_evidence('2025_Q1', 'we are investing heavily in AI')
     catalogue = EvidenceCatalogue([quarter])
-    report = _report([TrendClaim(text='AI investment increased', evidence_refs=['2025_Q1#framing#99'])])
+    report = _report([TrendClaim(text='AI investment increased', evidence_refs=['2025_Q1#framing#0#99'])])
 
     markdown = ReportBuilder().render_markdown(report, catalogue)
 
     assert 'AI investment increased' in markdown
-    assert '2025_Q1#framing#99' not in markdown
+    assert '2025_Q1#framing#0#99' not in markdown
     assert '_No evidence cited._' in markdown
 
 
@@ -101,7 +103,7 @@ def test_claim_with_ungrounded_evidence_drops_the_citation_silently() -> None:
     # existing-but-unverified is still unverified.
     quarter = _quarter_with_evidence('2025_Q1', 'we are investing heavily in AI', is_grounded=False)
     catalogue = EvidenceCatalogue([quarter])
-    report = _report([TrendClaim(text='AI investment increased', evidence_refs=['2025_Q1#framing#0'])])
+    report = _report([TrendClaim(text='AI investment increased', evidence_refs=['2025_Q1#framing#0#0'])])
 
     markdown = ReportBuilder().render_markdown(report, catalogue)
 

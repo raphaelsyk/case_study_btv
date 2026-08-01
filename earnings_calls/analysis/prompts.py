@@ -16,26 +16,24 @@ earnings-call transcript.
 Task:
 Comprehensively analyse {company}'s view on AI in {quarter_name} using the speaker- and page-tagged \
 transcript below, and populate the four sections of the response schema: 'framing', \
-'execution_investment', 'competitive_landscape', and 'outlook_credibility'. Guide yourself on the \
-attached questions for each section.
+'execution_investment', 'competitive_landscape', and 'outlook_credibility'. Each section's \
+'answers' is a list with one entry per attached question below: restate the question, answer \
+it, and attach the evidence backing your answer.
 
 Rules:
-* Base your analysis only on the transcript below. If it doesn't answer a question, \
-say so briefly in that section's narrative rather than omitting the section.
-* Important: every factual or quantitative claim in a section's narrative needs at \
-least one evidence item. An evidence item must be a SHORT, verbatim excerpt from a \
-single speaker on a single page - never blend text from two speakers or two pages \
-into one excerpt. If a claim needs support from two different quotes, add two \
-evidence items instead of merging them.
+* Base every answer only on the transcript below. Add one answer entry per attached question, \
+in order - if the transcript doesn't address a question, still add an entry for it with a short \
+answer saying so and an empty evidence list, rather than omitting the question.
+* Important: every factual or quantitative claim in an answer needs at least one evidence item. \
+An evidence item must be a SHORT, verbatim excerpt from a single speaker on a single page - never \
+blend text from two speakers or two pages into one excerpt. If a claim needs support from two \
+different quotes, add two evidence items instead of merging them.
 * Choose excerpt boundaries so the excerpt is understandable on its own, without the \
 surrounding transcript. In particular, never start an excerpt with a pronoun (e.g. \
 "that", "it", "this", "those") whose antecedent is a noun that only appears in an \
 earlier sentence you didn't include - extend the excerpt backward to include that \
 noun instead of cutting it off.
-* If AI is not discussed at all for a given section, leave its narrative as a short \
-sentence saying so (e.g. "AI is not discussed in this section this quarter") and \
-leave its evidence list empty - do not fabricate evidence to fill a section.
-* In narrative text (not excerpts, which must stay verbatim), never use a double \
+* In answer text (not excerpts, which must stay verbatim), never use a double \
 quotation mark (") - if you want to quote a word or short phrase, use single quotes \
 (') instead, since an unescaped double quote inside a JSON string breaks the \
 response. If an excerpt itself contains a double quote, copy it exactly as spoken \
@@ -208,9 +206,9 @@ repeated every quarter since."
 
 Rules:
 * You have NOT been given the original transcripts, only the distilled catalogue \
-below - base every claim only on the narratives and evidence it contains.
+below - base every claim only on the answers and evidence it contains.
 * CRITICAL: every claim's `evidence_refs` must be evidence ids copied EXACTLY as they \
-appear below (e.g. "2025_Q1#framing#0"). Never invent an id that isn't listed below, \
+appear below (e.g. "2025_Q1#framing#0#0"). Never invent an id that isn't listed below, \
 and never put excerpt text itself into a claim or into `evidence_refs` - reference \
 existing evidence by id only. A claim may cite zero, one, or several ids.
 * A quarter marked "Evidence: none" for a section can still be the subject of a claim \

@@ -92,7 +92,8 @@ class CompanyAnalyzer:
         """
         for section_name in _SECTION_NAMES:
             section: AnalysisSection = getattr(analysis, section_name)
-            check_evidence_grounding(section.evidence, transcript.raw_pages)
+            for answer in section.answers:
+                check_evidence_grounding(answer.evidence, transcript.raw_pages)
 
 
 def _render_evidence_markdown(analysis: QuarterAIAnalysis) -> str:
@@ -104,10 +105,13 @@ def _render_evidence_markdown(analysis: QuarterAIAnalysis) -> str:
         section: AnalysisSection = getattr(analysis, section_name)
         lines.append(f'## {section_name}')
         lines.append('')
-        lines.append(section.narrative)
-        lines.append('')
-        lines.append(_render_evidence_table(section.evidence))
-        lines.append('')
+        for answer in section.answers:
+            lines.append(f'### {answer.question}')
+            lines.append('')
+            lines.append(answer.answer)
+            lines.append('')
+            lines.append(_render_evidence_table(answer.evidence))
+            lines.append('')
     return '\n'.join(lines)
 
 

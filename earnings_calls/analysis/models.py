@@ -26,11 +26,18 @@ class Evidence(BaseModel):
     is_grounded: bool | None = None
 
 
-class AnalysisSection(BaseModel):
-    """One report section: synthesized prose plus every evidence item it draws on."""
+class QuestionAnswer(BaseModel):
+    """One attached question's answer, plus the evidence backing it."""
 
-    narrative: str
+    question: str
+    answer: str
     evidence: list[Evidence] = Field(default_factory=list)
+
+
+class AnalysisSection(BaseModel):
+    """One report section: an answer to every attached question, each with its own evidence."""
+
+    answers: list[QuestionAnswer] = Field(default_factory=list)
 
 
 class QuarterAIAnalysis(BaseModel):

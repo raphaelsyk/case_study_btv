@@ -43,8 +43,9 @@ class QuarterDistiller:
         quarter_name = transcript.identity.quarter_name
         for section_name in _SECTION_NAMES:
             section: AnalysisSection = getattr(response, section_name)
-            for evidence in section.evidence:
-                evidence.quarter_name = quarter_name
+            for answer in section.answers:
+                for evidence in answer.evidence:
+                    evidence.quarter_name = quarter_name
         return QuarterAIAnalysis(
             company=transcript.identity.company,
             quarter_name=quarter_name,

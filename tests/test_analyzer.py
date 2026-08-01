@@ -9,9 +9,16 @@ from pathlib import Path
 import pytest
 
 from earnings_calls.analysis.analyzer import CompanyAnalyzer
-from earnings_calls.analysis.distiller import _DistillResponse
-from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis, TrendClaim, TrendSection
-from earnings_calls.analysis.synthesizer import _SynthesizeResponse
+from earnings_calls.analysis.models import (
+    AnalysisSection,
+    DistillResponse,
+    Evidence,
+    QuarterAIAnalysis,
+    QuestionAnswer,
+    SynthesizeResponse,
+    TrendClaim,
+    TrendSection,
+)
 from earnings_calls.models import CallIdentity, Chunk, DateRange, RawPage, Section, Speaker, Transcript, Turn
 from earnings_calls.storage.json_file_storage import JsonFileStorage
 from tests.conftest import FakeLLMClient
@@ -39,25 +46,31 @@ def _transcript(quarter_name: str) -> Transcript:
     )
 
 
-def _draft_response() -> _DistillResponse:
+def _draft_response() -> DistillResponse:
     evidence = Evidence(
         quarter_name='ignored', page_no=1, speaker=_SPEAKER, excerpt='we are excited about our AI investments'
     )
-    populated = AnalysisSection(narrative='AI framed as a growth driver', evidence=[evidence])
-    empty = AnalysisSection(narrative='not discussed')
-    return _DistillResponse(framing=populated, operations_summary=empty, context=empty, commitments_outlook=empty)
+    answer = QuestionAnswer(question='How is AI framed?', answer='As a growth driver', evidence=[evidence])
+    populated = AnalysisSection(answers=[answer])
+    empty = AnalysisSection(answers=[])
+    return DistillResponse(
+        framing=populated, execution_investment=empty, competitive_landscape=empty, outlook_credibility=empty
+    )
 
 
-def _synthesize_response() -> _SynthesizeResponse:
-    claim = TrendClaim(text='AI framing intensified', evidence_refs=['2025_Q1#framing#0'])
+def _synthesize_response() -> SynthesizeResponse:
+    claim = TrendClaim(text='AI framing intensified', evidence_refs=['2025_Q1#framing#0#0'])
     empty = TrendSection(claims=[])
-    return _SynthesizeResponse(
-        framing=TrendSection(claims=[claim]), operations_summary=empty, context=empty, commitments_outlook=empty
+    return SynthesizeResponse(
+        framing=TrendSection(claims=[claim]),
+        execution_investment=empty,
+        competitive_landscape=empty,
+        outlook_credibility=empty,
     )
 
 
 def _llm() -> FakeLLMClient:
-    return FakeLLMClient({_DistillResponse: _draft_response(), _SynthesizeResponse: _synthesize_response()})
+    return FakeLLMClient({DistillResponse: _draft_response(), SynthesizeResponse: _synthesize_response()})
 
 
 def test_analyze_writes_a_markdown_and_pdf_report(tmp_path: Path) -> None:
@@ -82,7 +95,7 @@ def test_analyze_grounding_checks_and_caches_stage_one_output(tmp_path: Path) ->
 
     cache_path = output_root / 'jpmorganchase' / '_cache' / '2025_Q1.json'
     cached = QuarterAIAnalysis.model_validate_json(cache_path.read_text())
-    assert cached.framing.evidence[0].is_grounded is True
+    assert cached.framing.answers[0].evidence[0].is_grounded is True
 
 
 def test_analyze_reuses_cached_stage_one_output_on_a_second_run(tmp_path: Path) -> None:

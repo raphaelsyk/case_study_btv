@@ -4,8 +4,8 @@ against a FakeLLMClient - deterministic, no real API calls.
 
 import datetime
 
-from earnings_calls.analysis.distiller import QuarterDistiller, _DistillResponse
-from earnings_calls.analysis.models import AnalysisSection, Evidence
+from earnings_calls.analysis.distiller import QuarterDistiller
+from earnings_calls.analysis.models import AnalysisSection, DistillResponse, Evidence, QuestionAnswer
 from earnings_calls.models import CallIdentity, Chunk, DateRange, RawPage, Section, Speaker, Transcript, Turn
 from tests.conftest import FakeLLMClient
 
@@ -32,15 +32,18 @@ def _transcript(raw_page_text: str = 'super-secret raw page text never sent to t
     )
 
 
-def _draft_response(evidence_quarter_name: str = 'WRONG_QUARTER') -> _DistillResponse:
+def _draft_response(evidence_quarter_name: str = 'WRONG_QUARTER') -> DistillResponse:
     evidence = Evidence(quarter_name=evidence_quarter_name, page_no=1, speaker=_SPEAKER, excerpt='AI investments')
-    populated = AnalysisSection(narrative='AI is framed as a growth driver', evidence=[evidence])
-    empty = AnalysisSection(narrative='not discussed')
-    return _DistillResponse(framing=populated, operations_summary=empty, context=empty, commitments_outlook=empty)
+    answer = QuestionAnswer(question='How is AI framed?', answer='As a growth driver', evidence=[evidence])
+    populated = AnalysisSection(answers=[answer])
+    empty = AnalysisSection(answers=[])
+    return DistillResponse(
+        framing=populated, execution_investment=empty, competitive_landscape=empty, outlook_credibility=empty
+    )
 
 
-def _llm(response: _DistillResponse) -> FakeLLMClient:
-    return FakeLLMClient({_DistillResponse: response})
+def _llm(response: DistillResponse) -> FakeLLMClient:
+    return FakeLLMClient({DistillResponse: response})
 
 
 def test_distill_backfills_company_and_quarter_name_from_transcript_identity() -> None:
@@ -57,7 +60,7 @@ def test_distill_backfills_evidence_quarter_name_even_if_the_llm_got_it_wrong() 
 
     analysis = QuarterDistiller(llm).distill(_transcript(), company_slug='jpmorganchase')
 
-    assert analysis.framing.evidence[0].quarter_name == '2025_Q2'
+    assert analysis.framing.answers[0].evidence[0].quarter_name == '2025_Q2'
 
 
 def test_distill_prompt_never_includes_raw_page_text() -> None:
