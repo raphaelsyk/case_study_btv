@@ -1,11 +1,4 @@
-"""Pydantic schemas for the Analyzer's two-stage AI-discussion trend report.
-
-Stage 1 (distill) produces one `QuarterAIAnalysis` per quarter. Stage 2 (synthesize)
-consumes a company's `QuarterAIAnalysis` list and produces one `CompanyAIExposureTrendReport`.
-A `TrendClaim` cites evidence by id (`evidence_refs`), never by retyping excerpt text -
-see the "Analyzer Module" decision in system_design/02_system_design.md for why this is
-what makes citations survive the two-stage split intact.
-"""
+"""Pydantic schemas for the Analyzer's two-stage AI-discussion trend report."""
 
 from pydantic import BaseModel, Field
 

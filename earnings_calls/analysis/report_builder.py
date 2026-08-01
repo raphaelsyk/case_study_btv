@@ -88,8 +88,8 @@ class ReportBuilder:
     def _render_header(company: str) -> str:
         """Renders the title and disclaimer beside a top-right logo.
 
-        A borderless two-cell table, not `float`, places the logo - xhtml2pdf doesn't
-        honor CSS float, but reliably lays out tables (see `_constrain_evidence_table_columns`).
+        Uses a borderless two-cell table, not `float` - xhtml2pdf doesn't support
+        CSS float, but reliably lays out tables.
         """
         return (
             '<table style="width: 100%; border: none;"><tr>'

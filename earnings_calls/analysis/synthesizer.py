@@ -1,9 +1,9 @@
 """Stage 2 of the Analyzer: synthesizes a cross-quarter AI-trend report from a
 company's cached stage-1 analyses.
 
-Only ever sees the small, already-AI-filtered evidence catalogue below - never raw
-transcript text - and may only cite existing evidence by id, never retype excerpt
-text. See the "Analyzer Module" decision in system_design/02_system_design.md.
+Only ever sees the small, already-filtered evidence catalogue - never raw
+transcript text - and may only cite existing evidence by id, never retype
+excerpt text.
 """
 
 from earnings_calls.analysis import prompts

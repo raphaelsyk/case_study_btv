@@ -1,8 +1,7 @@
 """Maps a company to the industry-specific AI-analysis prompt variant it needs.
 
-A fixed, hardcoded mapping for the four known companies in scope (see the "Analyzer
-Module" decision in system_design/02_system_design.md) - not automatic sector
-detection. A future mixed/hybrid company would need a new manual entry here.
+A fixed, hardcoded mapping for the four known companies in scope, not automatic
+sector detection - a future mixed/hybrid company would need a new manual entry here.
 """
 
 from enum import Enum
@@ -15,10 +14,9 @@ class Sector(str, Enum):
     TECH = 'tech'
 
 
-# Keyed on the storage slug (JsonFileStorage._slugify'd company name, e.g.
-# "jpmorganchase"), not the free-text Transcript.identity.company field - that field is
-# LLM-extracted per document and not guaranteed identical across a company's quarters
-# (see the open company-identity-normalization note in 03_system_design_data_model.md).
+# Keyed on the storage slug (e.g. "jpmorganchase"), not the free-text
+# Transcript.identity.company field, which is LLM-extracted and not guaranteed
+# identical across a company's quarters.
 _SECTOR_BY_COMPANY_SLUG = {
     'bank_of_america': Sector.BANK,
     'jpmorganchase': Sector.BANK,

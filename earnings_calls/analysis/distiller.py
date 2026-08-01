@@ -1,8 +1,5 @@
 """Stage 1 of the Analyzer: distills one quarter's transcript into a structured,
 citeable AI-discussion analysis.
-
-Built only from a Transcript's `identity`, `participants`, and `turns` - never
-`raw_pages`, which has no speaker attribution and so cannot back an `Evidence` item.
 """
 
 from collections.abc import Sequence
@@ -28,6 +25,7 @@ class QuarterDistiller:
         Args:
             transcript: The quarter's structured transcript.
             company_slug: The storage slug used to pick the sector-specific prompt.
+
         Returns:
             The quarter's structured AI-discussion analysis.
         """

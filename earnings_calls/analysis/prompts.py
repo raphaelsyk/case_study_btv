@@ -1,11 +1,4 @@
-"""Prompt templates for the Analyzer's two stages.
-
-The distill prompts' question blocks are the already-validated content from the
-repo-root `prompt_for_analysing_banks.md` / `prompt_for_analysing_tech_companies.md`
-(kept verbatim - only the Output contract changes, from freeform markdown + a footnote
-table to populating the structured `AnalysisSection`/`Evidence` schema). See the
-"Analyzer Module" decision in system_design/02_system_design.md.
-"""
+"""Prompt templates for the Analyzer's two stages."""
 
 from earnings_calls.analysis.sector import Sector
 

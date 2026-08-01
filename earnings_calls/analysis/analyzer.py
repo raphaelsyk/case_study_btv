@@ -1,9 +1,8 @@
-"""Top-level orchestration for the Analyzer: a company's stored transcripts -> a
-cited, cross-quarter AI-discussion trend report.
+"""Orchestrates the Analyzer: turns a company's stored transcripts into a cited,
+cross-quarter AI-discussion trend report.
 
-Mirrors `earnings_calls.pipeline.TranscriptPipeline`'s shape: wires the stage-1/
-stage-2 LLM calls, caches stage-1 output to disk so a new quarter doesn't require
-re-distilling the whole company, and writes the final rendered report.
+Wires the stage-1/stage-2 LLM calls, caches stage-1 output per quarter, and
+writes the final rendered report.
 """
 
 import logging
@@ -79,7 +78,7 @@ class CompanyAnalyzer:
             cache_path.parent.mkdir(parents=True, exist_ok=True)
             cache_path.write_text(analysis.model_dump_json(indent=2))
 
-        # For monitoring/logging purposes, also write a human-readable markdown version of the cached analysis.
+        # Also write a human-readable markdown version, for inspection.
         cache_path.with_suffix('.md').write_text(_render_evidence_markdown(analysis))
         return analysis
 
@@ -87,8 +86,7 @@ class CompanyAnalyzer:
     def _ground_check(analysis: QuarterAIAnalysis, transcript: Transcript) -> None:
         """Flags every evidence item's `is_grounded` against the transcript's raw_pages.
 
-        `raw_pages` is used here and only here in the Analyzer - never as LLM input
-        (see the "Analyzer Module" decision in system_design/02_system_design.md).
+        `raw_pages` is used here and only here in the Analyzer, never as LLM input.
         """
         for section_name in _SECTION_NAMES:
             section: AnalysisSection = getattr(analysis, section_name)

@@ -1,12 +1,9 @@
 """Deterministic id assignment and resolution for stage-1 evidence, so stage 2 can
 cite existing evidence by id without ever having to retype excerpt text.
-
-See the "Analyzer Module" decision in system_design/02_system_design.md.
 """
 
 from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis
 
-# Section attribute names, in the fixed order they're rendered/cited in.
 _SECTION_NAMES = ('framing', 'execution_investment', 'competitive_landscape', 'outlook_credibility')
 
 
@@ -38,12 +35,10 @@ class EvidenceCatalogue:
     def resolve(self, evidence_id: str) -> Evidence | None:
         """Looks up an evidence item by id, for rendering as a trustworthy citation.
 
-        Returns None both when the id doesn't exist and when the evidence exists but
-        failed (or was never run through) its grounding check - either way, the caller
-        must not render it as a verified citation. A failed grounding check is a real
-        case: the source LLM call can still mis-attribute an otherwise-genuine excerpt
-        to the wrong page, which grounding catches - resolve() is where that catch
-        actually gets enforced, not just recorded.
+        Returns:
+            The Evidence, or None if the id is unknown or its evidence failed (or
+            never ran through) its grounding check - either way it must not be
+            rendered as a verified citation.
         """
         evidence = self._by_id.get(evidence_id)
         if evidence is None or evidence.is_grounded is not True:
