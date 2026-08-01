@@ -21,3 +21,7 @@ class TranscriptStorage(Protocol):
     def load(self, company: str, quarter: str) -> Transcript:
         """Loads a previously stored transcript for `company`/`quarter`."""
         ...
+
+    def list_quarters(self, company: str) -> list[str]:
+        """Lists every quarter with a stored transcript for `company`, chronologically."""
+        ...

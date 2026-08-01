@@ -1,9 +1,12 @@
-"""Tests for GroundingChecker - fully deterministic, no LLM/docling involved."""
+"""Tests for GroundingChecker and check_evidence_grounding - fully deterministic, no
+LLM/docling involved.
+"""
 
 import datetime
 
+from earnings_calls.analysis.models import Evidence
 from earnings_calls.models import CallIdentity, Chunk, DateRange, RawPage, Section, Speaker, Transcript, Turn
-from earnings_calls.validation.grounding import GroundingChecker
+from earnings_calls.validation.grounding import GroundingChecker, check_evidence_grounding
 
 _IDENTITY = CallIdentity(
     company='Test Co',
@@ -94,3 +97,33 @@ def test_one_ungrounded_chunk_makes_the_whole_turn_ungrounded() -> None:
 
     assert [chunk.is_grounded for chunk in transcript.turns[0].text] == [True, False]
     assert transcript.turns[0].is_grounded is False
+
+
+def test_check_evidence_grounding_flags_a_verbatim_excerpt_as_grounded() -> None:
+    evidence = Evidence(quarter_name='2025_Q1', page_no=1, speaker=_SPEAKER, excerpt='thank you for joining today')
+    raw_pages = [RawPage(page_no=1, text='Good morning, thank you for joining today, everyone.')]
+
+    check_evidence_grounding([evidence], raw_pages)
+
+    assert evidence.is_grounded is True
+
+
+def test_check_evidence_grounding_flags_a_fabricated_excerpt_as_not_grounded() -> None:
+    evidence = Evidence(quarter_name='2025_Q1', page_no=1, speaker=_SPEAKER, excerpt='we invented a time machine')
+    raw_pages = [RawPage(page_no=1, text='Good morning, thank you for joining today, everyone.')]
+
+    check_evidence_grounding([evidence], raw_pages)
+
+    assert evidence.is_grounded is False
+
+
+def test_check_evidence_grounding_checks_against_the_excerpts_own_claimed_page() -> None:
+    evidence = Evidence(quarter_name='2025_Q1', page_no=2, speaker=_SPEAKER, excerpt='thank you for joining today')
+    raw_pages = [
+        RawPage(page_no=1, text='thank you for joining today'),
+        RawPage(page_no=2, text='revenue grew twelve percent year over year'),
+    ]
+
+    check_evidence_grounding([evidence], raw_pages)
+
+    assert evidence.is_grounded is False
