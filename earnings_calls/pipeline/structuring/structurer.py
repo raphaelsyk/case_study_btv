@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 from earnings_calls.llm_client import LLMClient
 from earnings_calls.models import CallIdentity, RawPage, Speaker, Transcript, Turn
-from earnings_calls.structuring import prompts
+from earnings_calls.pipeline.structuring import prompts
 from earnings_calls.validation.checks import normalize_speaker_name
 
 IDENTITY_CALL_PAGE_COUNT = 3

@@ -6,9 +6,9 @@ import datetime
 from pathlib import Path
 
 from earnings_calls.models import CallIdentity, Chunk, DateRange, RawPage, Section, Speaker, Turn
-from earnings_calls.pipeline import TranscriptPipeline
+from earnings_calls.pipeline.orchestrator import TranscriptPipeline
+from earnings_calls.pipeline.structuring.structurer import _IdentityAndParticipantsResponse, _TurnsResponse
 from earnings_calls.storage.json_file_storage import JsonFileStorage
-from earnings_calls.structuring.structurer import _IdentityAndParticipantsResponse, _TurnsResponse
 from tests.conftest import FakeLLMClient
 
 _IDENTITY = CallIdentity(

@@ -8,11 +8,11 @@ import logging
 from collections.abc import Iterable
 from pathlib import Path
 
-from earnings_calls.extraction import DoclingPageExtractor, PageExtractor
 from earnings_calls.llm_client import LLMClient
 from earnings_calls.models import Transcript
+from earnings_calls.pipeline.extraction import DoclingPageExtractor, PageExtractor
+from earnings_calls.pipeline.structuring.structurer import TranscriptStructurer
 from earnings_calls.storage.interface import TranscriptStorage
-from earnings_calls.structuring.structurer import TranscriptStructurer
 from earnings_calls.validation.grounding import GroundingChecker
 
 logger = logging.getLogger(__name__)
@@ -72,8 +72,8 @@ if __name__ == '__main__':
     import shutil
     from pathlib import Path
 
-    from llm_client import GeminiVertexClient
-    from storage.json_file_storage import JsonFileStorage
+    from earnings_calls.llm_client import GeminiVertexClient
+    from earnings_calls.storage.json_file_storage import JsonFileStorage
 
     input = [Path('example_data/NVDA-Q1-2026-Earnings-Call-28-May-2025-5_00-PM-ET.pdf')]
     output = Path('tests/tmp')

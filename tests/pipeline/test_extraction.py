@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-from earnings_calls.extraction import DoclingPageExtractor
+from earnings_calls.pipeline.extraction import DoclingPageExtractor
 from tests.conftest import example_pdf_paths
 
 _MAX_PAGES_FOR_FAST_TEST = 2

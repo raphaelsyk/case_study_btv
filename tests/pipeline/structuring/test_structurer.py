@@ -5,7 +5,7 @@ against a FakeLLMClient - deterministic, no real API calls.
 import datetime
 
 from earnings_calls.models import CallIdentity, Chunk, DateRange, QAType, RawPage, Section, Speaker, Turn
-from earnings_calls.structuring.structurer import (
+from earnings_calls.pipeline.structuring.structurer import (
     TranscriptStructurer,
     _IdentityAndParticipantsResponse,
     _TurnsResponse,

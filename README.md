@@ -37,7 +37,7 @@ uv sync
 ## Running the transformation pipeline
 
 ```bash
-uv run python -m earnings_calls.cli data --output output/structured
+uv run python -m earnings_calls.pipeline_cli data --output output/structured
 ```
 
 Structures every PDF in the given input directory and writes one validated JSON file

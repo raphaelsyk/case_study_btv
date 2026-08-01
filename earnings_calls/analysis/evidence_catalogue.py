@@ -2,7 +2,7 @@
 cite existing evidence by id without ever having to retype excerpt text.
 """
 
-from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis
+from earnings_calls.analysis.schemas import AnalysisSection, Evidence, QuarterAIAnalysis
 
 _SECTION_NAMES = ('framing', 'execution_investment', 'competitive_landscape', 'outlook_credibility')
 

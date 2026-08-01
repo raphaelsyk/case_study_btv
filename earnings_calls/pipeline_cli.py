@@ -1,7 +1,7 @@
 """Thin CLI entrypoint for running the transformation pipeline over a directory of PDFs.
 
 Usage:
-    uv run python -m earnings_calls.cli data/ --output output/structured
+    uv run python -m earnings_calls.pipeline_cli data/ --output output/structured
 
 Requires GOOGLE_CLOUD_PROJECT, GOOGLE_CLOUD_LOCATION, and GEMINI_MODEL to be set - see
 earnings_calls.llm_client.GeminiVertexClient.
@@ -12,7 +12,7 @@ import logging
 from pathlib import Path
 
 from earnings_calls.llm_client import GeminiVertexClient
-from earnings_calls.pipeline import TranscriptPipeline
+from earnings_calls.pipeline.orchestrator import TranscriptPipeline
 from earnings_calls.storage.json_file_storage import JsonFileStorage
 
 logger = logging.getLogger(__name__)

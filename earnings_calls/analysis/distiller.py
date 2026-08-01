@@ -5,7 +5,7 @@ citeable AI-discussion analysis.
 from collections.abc import Sequence
 
 from earnings_calls.analysis import prompts
-from earnings_calls.analysis.models import AnalysisSection, DistillResponse, QuarterAIAnalysis
+from earnings_calls.analysis.schemas import AnalysisSection, DistillResponse, QuarterAIAnalysis
 from earnings_calls.analysis.sector import sector_for_company
 from earnings_calls.llm_client import LLMClient
 from earnings_calls.models import Transcript, Turn

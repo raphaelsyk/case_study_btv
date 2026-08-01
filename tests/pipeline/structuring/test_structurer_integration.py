@@ -15,8 +15,8 @@ import pytest
 
 from earnings_calls.llm_client import GeminiVertexClient
 from earnings_calls.models import DateRange, RawPage
-from earnings_calls.structuring import prompts
-from earnings_calls.structuring.structurer import TranscriptStructurer, _IdentityAndParticipantsResponse
+from earnings_calls.pipeline.structuring import prompts
+from earnings_calls.pipeline.structuring.structurer import TranscriptStructurer, _IdentityAndParticipantsResponse
 
 pytestmark = [
     pytest.mark.integration,

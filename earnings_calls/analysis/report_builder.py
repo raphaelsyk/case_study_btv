@@ -11,7 +11,7 @@ import markdown as markdown_lib
 from xhtml2pdf import pisa
 
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
-from earnings_calls.analysis.models import CompanyAIExposureTrendReport, Evidence, TrendClaim, TrendSection
+from earnings_calls.analysis.schemas import CompanyAIExposureTrendReport, Evidence, TrendClaim, TrendSection
 from earnings_calls.models import Speaker
 
 logger = logging.getLogger(__name__)
@@ -30,7 +30,7 @@ _MUTED_TEXT_COLOR = '#999999'
 _SPEAKER_DETAIL_FONT_SIZE = '6pt'
 _EVIDENCE_TABLE_CELL_PADDING = 6
 
-_LOGO_PATH = Path(__file__).resolve().parents[2] / 'src' / 'logo.svg'
+_LOGO_PATH = Path(__file__).resolve().parents[2] / 'assets' / 'logo.svg'
 _LOGO_WIDTH_PX = 140
 _DISCLAIMER_TEXT = 'AI generated -- for internal use only.'
 

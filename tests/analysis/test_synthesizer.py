@@ -4,7 +4,7 @@ wiring, against a FakeLLMClient - deterministic, no real API calls.
 
 import pytest
 
-from earnings_calls.analysis.models import (
+from earnings_calls.analysis.schemas import (
     AnalysisSection,
     Evidence,
     QuarterAIAnalysis,

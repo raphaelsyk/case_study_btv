@@ -5,7 +5,7 @@ against a FakeLLMClient - deterministic, no real API calls.
 import datetime
 
 from earnings_calls.analysis.distiller import QuarterDistiller
-from earnings_calls.analysis.models import AnalysisSection, DistillResponse, Evidence, QuestionAnswer
+from earnings_calls.analysis.schemas import AnalysisSection, DistillResponse, Evidence, QuestionAnswer
 from earnings_calls.models import CallIdentity, Chunk, DateRange, RawPage, Section, Speaker, Transcript, Turn
 from tests.conftest import FakeLLMClient
 

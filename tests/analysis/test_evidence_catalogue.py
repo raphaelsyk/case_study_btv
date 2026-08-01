@@ -1,7 +1,7 @@
 """Tests for EvidenceCatalogue's id assignment and resolution - fully deterministic."""
 
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
-from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis, QuestionAnswer
+from earnings_calls.analysis.schemas import AnalysisSection, Evidence, QuarterAIAnalysis, QuestionAnswer
 from earnings_calls.models import Speaker
 
 _SPEAKER = Speaker(name='Jane Doe', role='CFO')

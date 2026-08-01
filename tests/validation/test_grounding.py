@@ -4,7 +4,7 @@ LLM/docling involved.
 
 import datetime
 
-from earnings_calls.analysis.models import Evidence
+from earnings_calls.analysis.schemas import Evidence
 from earnings_calls.models import CallIdentity, Chunk, DateRange, RawPage, Section, Speaker, Transcript, Turn
 from earnings_calls.validation.grounding import GroundingChecker, check_evidence_grounding
 

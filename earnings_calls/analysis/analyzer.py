@@ -9,8 +9,8 @@ import logging
 from pathlib import Path
 
 from earnings_calls.analysis.distiller import QuarterDistiller
-from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis
 from earnings_calls.analysis.report_builder import ReportBuilder
+from earnings_calls.analysis.schemas import AnalysisSection, Evidence, QuarterAIAnalysis
 from earnings_calls.analysis.synthesizer import TrendSynthesizer
 from earnings_calls.llm_client import LLMClient
 from earnings_calls.models import Transcript

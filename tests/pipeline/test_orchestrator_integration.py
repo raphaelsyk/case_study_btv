@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 
 from earnings_calls.llm_client import GeminiVertexClient
-from earnings_calls.pipeline import TranscriptPipeline
+from earnings_calls.pipeline.orchestrator import TranscriptPipeline
 from earnings_calls.storage.json_file_storage import JsonFileStorage
 from tests.conftest import example_pdf_paths
 

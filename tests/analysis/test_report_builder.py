@@ -7,7 +7,8 @@ id (e.g. "2025_Q1#framing#0#0"), only a short sequential [1], [2], ... footnote 
 """
 
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
-from earnings_calls.analysis.models import (
+from earnings_calls.analysis.report_builder import ReportBuilder
+from earnings_calls.analysis.schemas import (
     AnalysisSection,
     CompanyAIExposureTrendReport,
     Evidence,
@@ -16,7 +17,6 @@ from earnings_calls.analysis.models import (
     TrendClaim,
     TrendSection,
 )
-from earnings_calls.analysis.report_builder import ReportBuilder
 from earnings_calls.models import Speaker
 
 _SPEAKER = Speaker(name='Jane Doe', role='CFO')

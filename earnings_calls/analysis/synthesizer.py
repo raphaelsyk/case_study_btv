@@ -8,7 +8,7 @@ excerpt text.
 
 from earnings_calls.analysis import prompts
 from earnings_calls.analysis.evidence_catalogue import EvidenceCatalogue
-from earnings_calls.analysis.models import (
+from earnings_calls.analysis.schemas import (
     CompanyAIExposureTrendReport,
     QuarterAIAnalysis,
     SynthesizeResponse,

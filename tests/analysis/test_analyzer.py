@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 
 from earnings_calls.analysis.analyzer import CompanyAnalyzer
-from earnings_calls.analysis.models import (
+from earnings_calls.analysis.schemas import (
     AnalysisSection,
     DistillResponse,
     Evidence,

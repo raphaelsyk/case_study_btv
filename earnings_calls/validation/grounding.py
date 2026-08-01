@@ -75,7 +75,7 @@ def check_evidence_grounding(excerpts: Sequence[_GroundableExcerpt], raw_pages: 
 
     Args:
         excerpts: Objects with `page_no`, `excerpt`, and a settable `is_grounded`
-            (e.g. `earnings_calls.analysis.models.Evidence`).
+            (e.g. `earnings_calls.analysis.schemas.Evidence`).
         raw_pages: The source transcript's independently-extracted raw page text.
     """
     raw_text_by_page = {page.page_no: page.text for page in raw_pages}
