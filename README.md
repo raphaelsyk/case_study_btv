@@ -5,19 +5,24 @@ requirements, architecture decisions, and data model behind this implementation.
 
 ## Setup
 
+### Requirements
+- A GCP project with the Vertex AI API enabled, and local Application Default
+  Credentials (`gcloud auth application-default login`).
+- [uv](https://docs.astral.sh/uv/) for dependency management.
+- Environment variables that configure access to the Vertex AI API:
+
+```bash
+export GOOGLE_CLOUD_LOCATION=<REGION>       # e.g. 'eu'
+export GEMINI_MODEL=<MODEL>                 # e.g. 'gemini-2.5-pro'
+export GOOGLE_CLOUD_PROJECT=<PROJECT-ID>
+```
+
+### Before your first start
+Create the virtual environment with:
 ```bash
 uv sync
 ```
 
-The transformation pipeline calls Gemini via Vertex AI, so it also needs:
-
-- A GCP project with the Vertex AI API enabled, and local Application Default
-  Credentials (`gcloud auth application-default login`).
-- `GOOGLE_CLOUD_PROJECT` set to that project id.
-- Optionally `GOOGLE_CLOUD_LOCATION` (defaults to `us-central1`) and `GEMINI_MODEL`
-  (defaults to `gemini-2.5-pro`). Not every region supports Gemini generative models -
-  `us-central1` is confirmed working; if you point this at a different region and get
-  a `501 UNIMPLEMENTED` error, fall back to `us-central1`.
 
 ## Data
 
@@ -27,7 +32,7 @@ Earnings call transcripts (PDF) live in `data/` (the full multi-quarter corpus) 
 ## Running the transformation pipeline
 
 ```bash
-GOOGLE_CLOUD_PROJECT=<your-project> uv run python -m earnings_calls.cli example_data --output output/structured
+uv run python -m earnings_calls.cli example_data --output output/structured
 ```
 
 Structures every PDF in the given input directory and writes one validated JSON file
@@ -49,5 +54,5 @@ exercises a real end-to-end Gemini call and is excluded by default; run it expli
 with GCP credentials configured:
 
 ```bash
-GOOGLE_CLOUD_PROJECT=<your-project> uv run pytest -m integration
+uv run pytest -m integration
 ```
