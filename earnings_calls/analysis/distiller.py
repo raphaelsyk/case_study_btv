@@ -13,7 +13,7 @@ from earnings_calls.analysis.sector import sector_for_company
 from earnings_calls.llm_client import LLMClient
 from earnings_calls.models import Transcript, Turn
 
-_SECTION_NAMES = ('framing', 'operations_summary', 'context', 'commitments_outlook')
+_SECTION_NAMES = ('framing', 'execution_investment', 'competitive_landscape', 'outlook_credibility')
 
 
 class QuarterDistiller:
@@ -49,9 +49,9 @@ class QuarterDistiller:
             company=transcript.identity.company,
             quarter_name=quarter_name,
             framing=response.framing,
-            operations_summary=response.operations_summary,
-            context=response.context,
-            commitments_outlook=response.commitments_outlook,
+            execution_investment=response.execution_investment,
+            competitive_landscape=response.competitive_landscape,
+            outlook_credibility=response.outlook_credibility,
         )
 
     @staticmethod

@@ -10,7 +10,7 @@ import logging
 from pathlib import Path
 
 from earnings_calls.analysis.distiller import QuarterDistiller
-from earnings_calls.analysis.models import AnalysisSection, QuarterAIAnalysis
+from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis
 from earnings_calls.analysis.report_builder import ReportBuilder
 from earnings_calls.analysis.synthesizer import TrendSynthesizer
 from earnings_calls.llm_client import LLMClient
@@ -20,7 +20,7 @@ from earnings_calls.validation.grounding import check_evidence_grounding
 
 logger = logging.getLogger(__name__)
 
-_SECTION_NAMES = ('framing', 'operations_summary', 'context', 'commitments_outlook')
+_SECTION_NAMES = ('framing', 'execution_investment', 'competitive_landscape', 'outlook_credibility')
 
 
 class CompanyAnalyzer:

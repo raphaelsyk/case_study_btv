@@ -14,9 +14,9 @@ You are a business analyst, analysing a company's view on AI using one quarter's
 earnings-call transcript.
 
 Task:
-Analyse {company}'s view on AI in {quarter_name} using the speaker- and page-tagged \
+Comprehensively analyse {company}'s view on AI in {quarter_name} using the speaker- and page-tagged \
 transcript below, and populate the four sections of the response schema: 'framing', \
-'operations_summary', 'context', and 'commitments_outlook'. Guide yourself on the \
+'execution_investment', 'competitive_landscape', and 'outlook_credibility'. Guide yourself on the \
 attached questions for each section.
 
 Rules:
@@ -27,6 +27,11 @@ least one evidence item. An evidence item must be a SHORT, verbatim excerpt from
 single speaker on a single page - never blend text from two speakers or two pages \
 into one excerpt. If a claim needs support from two different quotes, add two \
 evidence items instead of merging them.
+* Choose excerpt boundaries so the excerpt is understandable on its own, without the \
+surrounding transcript. In particular, never start an excerpt with a pronoun (e.g. \
+"that", "it", "this", "those") whose antecedent is a noun that only appears in an \
+earlier sentence you didn't include - extend the excerpt backward to include that \
+noun instead of cutting it off.
 * If AI is not discussed at all for a given section, leave its narrative as a short \
 sentence saying so (e.g. "AI is not discussed in this section this quarter") and \
 leave its evidence list empty - do not fabricate evidence to fill a section.
@@ -48,7 +53,6 @@ _BANK_QUESTIONS = """\
 <attached questions to use for analysis>
 ##Framing
 Visibility:
-* How prominent is AI in the call relative to other topics (mentions, time spent)?
 * Is AI raised proactively by management, or only in response to analyst questions?
 
 Strategic framing:
@@ -58,7 +62,7 @@ Strategic framing:
 Sentiment:
 * What tone does management convey when discussing AI (e.g. defensive, cautious, hopeful, excited)?
 
-##Summary of AI-related operations
+##Execution & Investment
 Financial materialisation:
 * What investment (capex/opex) is disclosed for AI?
 * What returns (revenue, cost savings) or costs are attributed to AI, and how is ROI characterized?
@@ -72,13 +76,13 @@ Talent, partnerships & operating model:
 * Are new roles, teams, or organizational structures created for AI?
 * Is workforce impact (hiring, redeployment, headcount reduction) attributed to AI?
 
-##Context
+##Competitive Landscape
 Competitive positioning:
 * Does management position the company as ahead of, behind, or on par with peers in AI?
 * Are non-traditional competitors named as AI-enabled threats?
 
 
-##Commitments, Outlook & Credibility
+##Outlook & Credibility
 Commitments:
 * What specific, forward-looking pledges does management make about the company's own \
 AI efforts (targets, timelines, deliverables)?
@@ -89,7 +93,10 @@ independent of the company's own commitments?
 
 Claim credibility:
 * Are AI-related claims specific and quantifiable, or vague and promotional?
-</attached questions to use for analysis>"""
+</attached questions to use for analysis>
+
+Remember: Provide a comprehensive analysis of the company's AI discussion in this quarter.
+"""
 
 _TECH_QUESTIONS = """\
 <attached questions to use for analysis>
@@ -115,7 +122,7 @@ acknowledge specific execution risks or bottlenecks (power, supply chain, \
 geopolitics) alongside the bullish narrative, or is messaging uniformly promotional \
 without caveats?
 
-##Summary of AI-related operations
+##Execution & Investment
 
 Product & platform roadmap:
 * What AI products/platforms are named, and what is their production status \
@@ -145,15 +152,13 @@ narrative?
 lock-in, or both?
 * Are supply chain dependencies or constraints disclosed as a risk to execution?
 
-##Context
+##Competitive Landscape
 
 Competitive positioning:
 * Does management position the company as ahead of, behind, or on par with \
-competitors - including alternative approaches (e.g. custom ASICs)?
+competitors - including alternative approaches?
 * Are specific competitive threats named, and how does management characterize the \
 risk they pose?
-* What geopolitical/competitive dynamics are discussed (e.g. "race" framing between \
-national tech ecosystems, restricted markets)?
 
 Regulatory & geopolitical risk:
 * What export control, licensing, or trade policy constraints are disclosed, and how \
@@ -161,7 +166,7 @@ do they affect guidance (e.g. excluded revenue, revenue-share terms)?
 * How does management characterize the durability/predictability of these \
 constraints (one-off vs. ongoing uncertainty)?
 
-##Commitments, Outlook & Credibility
+##Outlook & Credibility
 
 Commitments:
 * What specific, forward-looking pledges does management make about product roadmap, \
@@ -178,7 +183,10 @@ multi-trillion-dollar TAM, "industrial revolution" framing) without clear \
 evidentiary basis?
 * Do this quarter's quantitative claims align with previously stated targets or \
 guidance (where prior-quarter data is available)?
-</attached questions to use for analysis>"""
+</attached questions to use for analysis>
+
+Remember: Provide a comprehensive analysis of the company's AI discussion in this quarter.
+"""
 
 _QUESTIONS_BY_SECTOR = {
     Sector.BANK: _BANK_QUESTIONS,
@@ -191,8 +199,8 @@ You are a business analyst, synthesising how {company}'s view on AI changed acro
 per-quarter analyses below.
 
 Task:
-For each of the four sections ('framing', 'operations_summary', 'context', \
-'commitments_outlook'), write a list of trend claims describing how that dimension \
+For each of the four sections ('framing', 'execution_investment', 'competitive_landscape', \
+'outlook_credibility'), write a list of trend claims describing how that dimension \
 changed, stayed consistent, appeared, or disappeared across the quarters below - e.g. \
 "AI's framing shifted from a cost-efficiency tool in 2025_Q1 to a competitive \
 necessity by 2026_Q1" or "Capex disclosures for AI were not made until 2025_Q3, then \

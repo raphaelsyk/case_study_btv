@@ -49,8 +49,8 @@ class TrendSynthesizer:
             company=quarters[0].company,
             quarters_covered=quarter_names,
             framing=response.framing,
-            operations_summary=response.operations_summary,
-            context=response.context,
-            commitments_outlook=response.commitments_outlook,
+            execution_investment=response.execution_investment,
+            competitive_landscape=response.competitive_landscape,
+            outlook_credibility=response.outlook_credibility,
         )
         return report, catalogue

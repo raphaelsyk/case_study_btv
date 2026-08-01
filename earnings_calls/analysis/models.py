@@ -39,9 +39,9 @@ class QuarterAIAnalysis(BaseModel):
     company: str
     quarter_name: str
     framing: AnalysisSection
-    operations_summary: AnalysisSection
-    context: AnalysisSection
-    commitments_outlook: AnalysisSection
+    execution_investment: AnalysisSection
+    competitive_landscape: AnalysisSection
+    outlook_credibility: AnalysisSection
 
 
 class DistillResponse(BaseModel):
@@ -53,9 +53,9 @@ class DistillResponse(BaseModel):
     """
 
     framing: AnalysisSection
-    operations_summary: AnalysisSection
-    context: AnalysisSection
-    commitments_outlook: AnalysisSection
+    execution_investment: AnalysisSection
+    competitive_landscape: AnalysisSection
+    outlook_credibility: AnalysisSection
 
 
 class TrendClaim(BaseModel):
@@ -77,9 +77,9 @@ class CompanyAIExposureTrendReport(BaseModel):
     company: str
     quarters_covered: list[str]
     framing: TrendSection
-    operations_summary: TrendSection
-    context: TrendSection
-    commitments_outlook: TrendSection
+    execution_investment: TrendSection
+    competitive_landscape: TrendSection
+    outlook_credibility: TrendSection
 
 
 class SynthesizeResponse(BaseModel):
@@ -90,6 +90,6 @@ class SynthesizeResponse(BaseModel):
     """
 
     framing: TrendSection
-    operations_summary: TrendSection
-    context: TrendSection
-    commitments_outlook: TrendSection
+    execution_investment: TrendSection
+    competitive_landscape: TrendSection
+    outlook_credibility: TrendSection

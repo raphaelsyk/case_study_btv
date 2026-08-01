@@ -26,9 +26,9 @@ logger = logging.getLogger(__name__)
 # (attribute name, display title), in report order.
 _SECTIONS = (
     ('framing', 'Framing'),
-    ('operations_summary', 'Summary of AI-related operations'),
-    ('context', 'Context'),
-    ('commitments_outlook', 'Commitments, Outlook & Credibility'),
+    ('execution_investment', 'Execution & Investment'),
+    ('competitive_landscape', 'Competitive Landscape'),
+    ('outlook_credibility', 'Outlook & Credibility'),
 )
 
 # Evidence table column widths, matching _render_evidence_table's fixed column order

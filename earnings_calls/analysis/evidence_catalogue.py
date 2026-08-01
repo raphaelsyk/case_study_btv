@@ -7,7 +7,7 @@ See the "Analyzer Module" decision in system_design/02_system_design.md.
 from earnings_calls.analysis.models import AnalysisSection, Evidence, QuarterAIAnalysis
 
 # Section attribute names, in the fixed order they're rendered/cited in.
-_SECTION_NAMES = ('framing', 'operations_summary', 'context', 'commitments_outlook')
+_SECTION_NAMES = ('framing', 'execution_investment', 'competitive_landscape', 'outlook_credibility')
 
 
 class EvidenceCatalogue:
