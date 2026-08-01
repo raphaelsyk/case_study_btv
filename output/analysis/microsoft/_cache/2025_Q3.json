@@ -1,0 +1,452 @@
+{
+  "company": "Microsoft",
+  "quarter_name": "2025_Q3",
+  "framing": {
+    "answers": [
+      {
+        "question": "Which AI sub-segments or themes dominate the call (e.g. data center/cloud, sovereign AI, enterprise, robotics/physical AI, automotive, networking, gaming), and how does the emphasis shift vs. prior quarters?",
+        "answer": "The call is dominated by themes such as cloud infrastructure and datacenters, enterprise AI tools, developer platforms, agents, data and analytics, and gaming AI. Management emphasizes infrastructure expansion, agentic frameworks, and AI integration across productivity and developer tools.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Cloud and AI are the essential inputs for every business to expand output, reduce costs, and accelerate growth. Now, I will highlight examples, starting with infrastructure. We continue to expand our datacenter capacity.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 5,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Now, on to AI platforms and tools. Foundry is the agent and AI app factory. It is now used by developers at over 70,000 enterprises and digital natives",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Which AI themes are introduced proactively in prepared remarks vs. only surfaced through analyst questions?",
+        "answer": "Infrastructure, cloud services, developer platforms, GitHub Copilot, Microsoft 365 Copilot, data and analytics (such as Fabric and PostgreSQL), and gaming AI integrations were introduced proactively in prepared remarks.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Now, I will highlight examples, starting with infrastructure. We continue to expand our datacenter capacity.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 6,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Now, on to developer tools. We are evolving GitHub Copilot from pair to peer programmer.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is the AI opportunity framed as a secular/structural shift (multi-year industrial build-out) or as near-term product-cycle demand?",
+        "answer": "Management frames the AI opportunity as a foundational, structural platform shift that builds directly on top of existing cloud infrastructure and long-term multi-year commitments.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 29,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "And if I step back, and Amy and I talk a lot about this, this time around, there's nothing certain for sure in the future, except for one thing, which is our largest business is our infrastructure business. And the good news here is the next big platform shift builds on that.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What total-addressable-market or infrastructure-spend figures does management cite to size the opportunity, and how do these evolve over time?",
+        "answer": "Management did not cite specific external total-addressable-market dollar figures during this call, though they highlighted commercial remaining performance obligations of $315 billion and cloud revenue surpassing $42 billion.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 15,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "Commercial remaining performance obligation increased to $315 billion, up 34% and 33% in constant currency.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What tone does management convey (e.g. confident, promotional, urgent)? Since baseline tone is uniformly bullish for AI-native companies, does management acknowledge specific execution risks or bottlenecks (power, supply chain, geopolitics) alongside the bullish narrative, or is messaging uniformly promotional without caveats?",
+        "answer": "Management maintains a confident and bullish tone while explicitly acknowledging specific bottlenecks and constraints, such as upcoming data center space and power limitations.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 27,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "I did talk about in my comments, we had hoped to be in balance by the end of Q4. We did see some increased demand, as you saw through the quarter. We are going to be a little short, still, a little tight as we exit the year, but are encouraged by that.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "execution_investment": {
+    "answers": [
+      {
+        "question": "What AI products/platforms are named, and what is their production status (development / ramping / full production)?",
+        "answer": "Named AI products and platforms include Foundry, Agent Service, GitHub Copilot (with agent mode and Autofix), Microsoft 365 Copilot, Copilot Studio, Dragon Copilot, and Azure AI services. These products are actively in production, ramping, and experiencing widespread commercial deployment.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 5,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Now, on to AI platforms and tools. Foundry is the agent and AI app factory. It is now used by developers at over 70,000 enterprises and digital natives",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 6,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "And four months in, over 10,000 organizations have used our new Agent Service to build, deploy, and scale their agents.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is the roadmap cadence (e.g. annual product cycle) reaffirmed, accelerated, or delayed relative to prior guidance?",
+        "answer": "The roadmap cadence is described as actively progressing with faster-than-expected delivery of capacity and rapid feature rollouts, such as recent updates to Microsoft 365 Copilot and Copilot+ PC experiences.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 17,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "And, in Azure AI services, we brought capacity online faster than expected.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Which customer segments/verticals are cited as adopting AI products (hyperscalers/CSPs, enterprises, sovereign/government, robotics, automotive), and what adoption evidence is given (named customers, deployment scale, revenue)?",
+        "answer": "Customer segments cited include enterprises, digital natives, healthcare providers, and manufacturing partners. Named customers include Abercrombie & Fitch, Coca-Cola, ServiceNow, BMW, BNY Mellon, City of Hope, and Tufts Medicine.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 4,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "When it comes to cloud migrations, we saw accelerating demand, with customers in every industry, from Abercrombie & Fitch Co., to Coca-Cola and ServiceNow, expanding their footprints on Azure.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 9,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Last quarter alone, we helped document nearly 9.5 million physician-patient encounters at providers like City of Hope, Ottawa Hospital, Tufts Medicine and WellStar, up over 50% quarter-over-quarter.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What market/ecosystem validation is cited (developer adoption, benchmark results, named partner deployments)?",
+        "answer": "Ecosystem validation includes Foundry being used by over 70,000 enterprises and digital natives, GitHub Copilot surpassing 15 million users, and partners like Autodesk, PTC, and Siemens building industrial AI solutions.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 7,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "All-up, we now have over 15 million GitHub Copilot users, up over 4X year-over-year.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 9,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "And leading partners like Autodesk, PTC, and Siemens have all built their own industrial AI solutions on our stack.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What revenue, margin, or growth figures are disclosed for AI-related segments, and how does guidance evolve?",
+        "answer": "Azure revenue grew 33% and 35% in constant currency, including 16 points from AI services. Cloud revenue surpassed $42 billion, up 22% in constant currency. AI revenue was above expectations, and gross margins were impacted by scaling AI infrastructure.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "It was a record quarter, driven by continued strength of Microsoft Cloud, which surpassed $42 billion in revenue, up 22% in constant currency.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 17,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "In Azure and other cloud services, revenue grew 33% and 35% in constant currency including 16 points from AI services.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What capacity-side investment (capex, inventory, opex) is disclosed to support AI demand?",
+        "answer": "Capital expenditures including finance leases were $21.4 billion for the quarter, with roughly half of cloud and AI spend going toward long-lived assets and the rest on servers such as CPUs and GPUs.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 19,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "Capital expenditures including finance leases were $21.4 billion, slightly lower than expected due to normal variability from the timing of delivery of data center leases.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What capex/spending figures does management cite for customers' AI infrastructure investment as a demand proxy, and how does this evolve?",
+        "answer": "Management did not cite specific third-party customer capex figures but noted strong commercial bookings growth of 18% driven by an Azure commitment from OpenAI and a commercial remaining performance obligation of $315 billion.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 14,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "Commercial bookings increased 18% and 17% in constant currency, significantly ahead of expectations again this quarter, driven by an Azure commitment from OpenAI.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What ecosystem partnerships are named (cloud providers, model builders, industry/vertical partners, foundry/supply chain), and what role do they play in the narrative?",
+        "answer": "Named partners include OpenAI, Cohere, DeepSeek, Meta, Mistral, Stability, Autodesk, PTC, and Siemens. They provide advanced models, tools, and industry-specific AI solutions built on Microsoft's stack.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 6,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "And we brought the latest models from OpenAI, along with new models from Cohere, DeepSeek, Meta, Mistral, Stability to Foundry.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is competitive advantage attributed to proprietary technology, ecosystem/developer lock-in, or both?",
+        "answer": "Competitive advantage is attributed to both proprietary technology and systems-wide software optimization combined with a broad ecosystem of integrated data, developer tools, and cloud infrastructure.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 33,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Yeah, I mean, I think at a macro level, I think the way to think about this is, you can ask the question, what's the difference between a hosting business and a hyperscale business? It's software.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are supply chain dependencies or constraints disclosed as a risk to execution?",
+        "answer": "Management noted that while supply chain efficiencies have improved dock-to-lead times for GPUs, strong demand will lead to some minor AI capacity and data center space constraints exiting the fiscal year.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 27,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "We did see some increased demand, as you saw through the quarter. We are going to be a little short, still, a little tight as we exit the year, but are encouraged by that.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "answers": [
+      {
+        "question": "Does management position the company as ahead of, behind, or on par with competitors - including alternative approaches?",
+        "answer": "Management positions Microsoft as a clear market leader, highlighting leading developer tools, extensive cloud infrastructure, market-leading hiring solutions through LinkedIn, and rapid model and platform adoption.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 11,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "And we remain the market leader in hiring, as customers like Equinix and Verizon use LinkedIn Hiring Assistant to find qualified candidates faster.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are specific competitive threats named, and how does management characterize the risk they pose?",
+        "answer": "Specific competitive threats or rival companies were not explicitly named during the call, with management focusing primarily on internal execution, technological integration, and demand capture.",
+        "evidence": []
+      },
+      {
+        "question": "What export control, licensing, or trade policy constraints are disclosed, and how do they affect guidance (e.g. excluded revenue, revenue-share terms)?",
+        "answer": "The transcript does not disclose specific export control or licensing constraints affecting financial guidance for the quarter.",
+        "evidence": []
+      },
+      {
+        "question": "How does management characterize the durability/predictability of these constraints (one-off vs. ongoing uncertainty)?",
+        "answer": "The transcript does not address the durability or predictability of regulatory or trade policy constraints.",
+        "evidence": []
+      }
+    ]
+  },
+  "outlook_credibility": {
+    "answers": [
+      {
+        "question": "What specific, forward-looking pledges does management make about product roadmap, capacity, or delivery timelines?",
+        "answer": "Management pledged continued infrastructure expansion, ongoing improvements in AI performance and cost per token, and anticipated growth in capital expenditures for the upcoming fiscal year at a lower growth rate than FY25.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 24,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "We expect capex to grow, it will grow at a lower rate than FY25 and will include a greater mix of short-lived assets which are more directly correlated to revenue than long-lived assets.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What is management's outlook on the AI market/industry trajectory (TAM estimates, growth rates, multi-year infrastructure spend), independent of company-specific commitments?",
+        "answer": "Management views AI as a compounding technological S-curve driven by compounding scaling laws, model diversity, and software efficiencies that continuously improve performance and reduce token costs.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "Model capabilities are doubling in performance every six months, thanks to multiple, compounding scaling laws.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are AI-related claims specific and quantifiable, or sweeping/directional (e.g. multi-trillion-dollar TAM, 'industrial revolution' framing) without clear evidentiary basis?",
+        "answer": "AI-related claims are supported by specific, quantifiable metrics, such as processing over 100 trillion tokens, 15 million GitHub Copilot users, and specific percentage growth figures for Azure AI services.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 6,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": null
+            },
+            "excerpt": "We processed over 100 trillion tokens this quarter, up 5X year-over-year -including a record 50 trillion tokens last month alone.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 17,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "In Azure and other cloud services, revenue grew 33% and 35% in constant currency including 16 points from AI services.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Do this quarter's quantitative claims align with previously stated targets or guidance (where prior-quarter data is available)?",
+        "answer": "Quantitative results exceeded expectations across cloud performance, commercial bookings, and AI revenue generation, aligning favourably with previous guidance frameworks.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q3",
+            "page_no": 14,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": null
+            },
+            "excerpt": "Results exceeded expectations driven by focused execution from our sales and partner teams. We continue to see strong demand for our cloud and AI offerings as they help customers drive productivity, increase efficiencies, and grow their businesses. And, again this quarter, revenue from our AI business was above expectations.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,499 @@
+{
+  "company": "NVIDIA Corp.",
+  "quarter_name": "2026_Q2",
+  "framing": {
+    "answers": [
+      {
+        "question": "Which AI sub-segments or themes dominate the call (e.g. data center/cloud, sovereign AI, enterprise, robotics/physical AI, automotive, networking, gaming), and how does the emphasis shift vs. prior quarters?",
+        "answer": "Data center infrastructure, sovereign AI, networking, and the emerging field of physical AI and robotics dominate the discussion, driven by the shift from one-shot chatbots to reasoning agentic AI.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Our full-stack AI solutions for cloud service providers, neoclouds, enterprises and sovereigns are all contributing to our growth.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 8,
+            "speaker": {
+              "name": "Jen Hsun Huang",
+              "role": "Co-founder, President, Chief Executive Officer & Director",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Because of agentic AI, the amount of hallucination has dropped significantly. It can now use tools and perform tasks.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Which AI themes are introduced proactively in prepared remarks vs. only surfaced through analyst questions?",
+        "answer": "Themes such as the $3 trillion to $4 trillion infrastructure build-out, sovereign AI progress, networking metrics, and the Rubin product pipeline were introduced proactively in prepared remarks.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We see $3 trillion to $4 trillion in AI infrastructure spend by the end of the decade.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is the AI opportunity framed as a secular/structural shift (multi-year industrial build-out) or as near-term product-cycle demand?",
+        "answer": "Management explicitly frames the AI opportunity as the beginning of a multi-year secular industrial revolution that will transform every industry.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We are at the beginning of an industrial revolution that will transform every industry.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What total-addressable-market or infrastructure-spend figures does management cite to size the opportunity, and how do these evolve over time?",
+        "answer": "Management cites a total addressable AI infrastructure spend of $3 trillion to $4 trillion by the end of the decade, supported by customer capital expenditures reaching $600 billion this calendar year.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We see $3 trillion to $4 trillion in AI infrastructure spend by the end of the decade.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "This growth is fueled by capital expenditures from the cloud to enterprises, which are on track to invest $600 billion in data center infrastructure and compute this calendar year alone, nearly doubling in two years.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What tone does management convey (e.g. confident, promotional, urgent)? Since baseline tone is uniformly bullish for AI-native companies, does management acknowledge specific execution risks or bottlenecks (power, supply chain, geopolitics) alongside the bullish narrative, or is messaging uniformly promotional without caveats?",
+        "answer": "Management conveys a highly confident and bullish tone while openly acknowledging specific execution bottlenecks and risks, including data center power limitations and geopolitical/export control issues in China.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We have not included H20 in our Q3 outlook as we continue to work through geopolitical issues.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Compared to the previous Hopper generation, GB300 NVL72 AI factories promise a 10x improvement in token per watt energy efficiency, which translates to revenues as data centers are power limited.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "execution_investment": {
+    "answers": [
+      {
+        "question": "What AI products/platforms are named, and what is their production status (development / ramping / full production)?",
+        "answer": "Blackwell platform and GB300 are in full production, RTX PRO servers are in full production, Jetson Thor is available, and Rubin platform chips are currently in fab.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Today, full production is underway. The current run rate is back at full speed, producing approximately 1,000 racks per week.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "The chips of the Rubin platform are in fab... Rubin remains on schedule for volume production next year.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is the roadmap cadence (e.g. annual product cycle) reaffirmed, accelerated, or delayed relative to prior guidance?",
+        "answer": "Management reaffirmed the annual product cadence and continuous innovation pace across compute, networking, systems, and software.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "This keeps us on track with our pace of an annual product cadence and continuous innovation across compute, networking, systems and software.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Which customer segments/verticals are cited as adopting AI products (hyperscalers/CSPs, enterprises, sovereign/government, robotics, automotive), and what adoption evidence is given (named customers, deployment scale, revenue)?",
+        "answer": "Adoption is cited across CSPs, neoclods, enterprises, and sovereigns, with named customers like OpenAI, Meta, Mistral, and AWS, alongside over $20 billion in expected sovereign AI revenue this year.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Lighthouse model builders, including OpenAI, Meta and Mistral, are using the GB200 NVL72 at data center scale for both training next-generation models and serving inference models in production.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 5,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We are on track to achieve over $20 billion in sovereign AI revenue this year, more than double than that of last year.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What market/ecosystem validation is cited (developer adoption, benchmark results, named partner deployments)?",
+        "answer": "Validation is cited through sweeping MLPerf training benchmark results, over 2 million developers, and widespread partner adoption in robotics and cloud services.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 5,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "NVIDIA's performance leadership was further validated in the latest MLPerf Training benchmarks, where the GB200 delivered a clean sweep.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What revenue, margin, or growth figures are disclosed for AI-related segments, and how does guidance evolve?",
+        "answer": "Total revenue reached $46.7 billion with Data Center revenue growing 56% year-over-year, and Q3 revenue is guided to approximately $54 billion.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Total revenue was $46.7 billion, exceeded our outlook as we grew sequentially across all market platforms. Data Center revenue grew 56% year-over-year.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Total revenue is expected to be $54 billion, plus or minus 2%.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What capacity-side investment (capex, inventory, opex) is disclosed to support AI demand?",
+        "answer": "Inventory increased sequentially from $11 billion to $15 billion to support the Blackwell and Blackwell Ultra ramp, and full-year operating expense growth expectations were raised to the high-30s range.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "To support the ramp of Blackwell and Blackwell Ultra, inventory increased sequentially from $11 billion to $15 billion in Q2.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "For the full year, we expect operating expenses to grow in the high-30s range year-over-year, up from our prior expectations of the mid-30s.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What capex/spending figures does management cite for customers' AI infrastructure investment as a demand proxy, and how does this evolve?",
+        "answer": "Management states that cloud and enterprise capital expenditures are on track to invest $600 billion in data center infrastructure and compute this calendar year, nearly doubling in two years.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "This growth is fueled by capital expenditures from the cloud to enterprises, which are on track to invest $600 billion in data center infrastructure and compute this calendar year alone, nearly doubling in two years.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What ecosystem partnerships are named (cloud providers, model builders, industry/vertical partners, foundry/supply chain), and what role do they play in the narrative?",
+        "answer": "Partners like AWS, Microsoft Azure, Google Cloud, OpenAI, and Siemens are highlighted as validators and co-developers integrating NVIDIA full-stack architectures.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "The AI industry is quickly adopting this revolutionary technology with major players such as AWS, Google Cloud, Microsoft Azure and OpenAI as well as Cohere, Mistral, Kimi AI, Perplexity, Reflection and Runway already embracing it.",
+            "is_grounded": false
+          }
+        ]
+      },
+      {
+        "question": "Is competitive advantage attributed to proprietary technology, ecosystem/developer lock-in, or both?",
+        "answer": "Competitive advantage is attributed to both full-stack co-design technology and a powerful developer ecosystem via CUDA libraries.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "The sequential increase in Hopper demand indicates the breadth of data center workloads that run on accelerated computing and the power of CUDA libraries and full-stack optimizations",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are supply chain dependencies or constraints disclosed as a risk to execution?",
+        "answer": "Management discusses factory conversion and capacity expansion to meet soaring global demand, but does not highlight critical external supply chain constraints as a primary risk beyond ramping requirements.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Today, full production is underway. The current run rate is back at full speed, producing approximately 1,000 racks per week.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "answers": [
+      {
+        "question": "Does management position the company as ahead of, behind, or on par with competitors - including alternative approaches?",
+        "answer": "Management positions NVIDIA firmly ahead of alternative approaches, emphasizing its full-stack system advantage over standalone ASICs and superior energy efficiency.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 9,
+            "speaker": {
+              "name": "Jen Hsun Huang",
+              "role": "Co-founder, President, Chief Executive Officer & Director",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "NVIDIA builds very different things in ASICs. So let me talk about ASICs first. A lot of projects are started. Many start-up companies are created. Very few products go into production. And the reason for that is it's really hard.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are specific competitive threats named, and how does management characterize the risk they pose?",
+        "answer": "Specific competitors are not explicitly named, though custom ASIC alternatives pursued by customers and competitors are addressed as extremely difficult to execute due to the complexity of full-stack accelerated computing.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 9,
+            "speaker": {
+              "name": "Jen Hsun Huang",
+              "role": "Co-founder, President, Chief Executive Officer & Director",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Accelerated computing is a full-stack co-design problem. And AI factories in the last several years had become so much more complex because of the scale of the problems have grown so significantly.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What export control, licensing, or trade policy constraints are disclosed, and how do they affect guidance (e.g. excluded revenue, revenue-share terms)?",
+        "answer": "Export controls related to H20 chips for China are disclosed, with management excluding H20 shipments from Q3 outlook while noting a potential $2 billion to $5 billion impact if geopolitical issues resolve.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We have not included H20 in our Q3 outlook as we continue to work through geopolitical issues. If geopolitical issues reside, we should [could] ship $2 billion to $5 billion in H20 revenue in Q3.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "How does management characterize the durability/predictability of these constraints (one-off vs. ongoing uncertainty)?",
+        "answer": "Management characterizes these constraints as ongoing geopolitical uncertainty requiring continuous advocacy with the US government.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We have not included H20 in our Q3 outlook as we continue to work through geopolitical issues.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "outlook_credibility": {
+    "answers": [
+      {
+        "question": "What specific, forward-looking pledges does management make about product roadmap, capacity, or delivery timelines?",
+        "answer": "Management pledges that Rubin remains on schedule for volume production next year, and that GB300 rack production and market availability will accelerate through the second half of the year.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Rubin remains on schedule for volume production next year.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We expect widespread market availability in the second half of the year as CoreWeave prepares to bring their GB300 instance to market",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What is management's outlook on the AI market/industry trajectory (TAM estimates, growth rates, multi-year infrastructure spend), independent of company-specific commitments?",
+        "answer": "Management expects $3 trillion to $4 trillion in total AI infrastructure spend by the end of the decade, supported by hyperscaler capital expenditure running at $600 billion annually.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "We see $3 trillion to $4 trillion in AI infrastructure spend by the end of the decade.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are AI-related claims specific and quantifiable, or sweeping/directional (e.g. multi-trillion-dollar TAM, 'industrial revolution' framing) without clear evidentiary basis?",
+        "answer": "Claims combine broad industrial revolution framing with specific, quantifiable metrics such as rack production run rates, energy efficiency gains, and customer capex figures.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Today, full production is underway. The current run rate is back at full speed, producing approximately 1,000 racks per week.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Do this quarter's quantitative claims align with previously stated targets or guidance (where prior-quarter data is available)?",
+        "answer": "Quantitative results and guidance align with previous trajectories, with reported revenues exceeding previous outlooks and ongoing execution tracking to stated annual cadences.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Colette M. Kress",
+              "role": "Chief Financial Officer & Executive Vice President",
+              "company": "NVIDIA Corp."
+            },
+            "excerpt": "Total revenue was $46.7 billion, exceeded our outlook as we grew sequentially across all market platforms.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  }
+}

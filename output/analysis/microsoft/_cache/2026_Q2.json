@@ -1,0 +1,428 @@
+{
+  "company": "Microsoft",
+  "quarter_name": "2026_Q2",
+  "framing": {
+    "answers": [
+      {
+        "question": "Which AI sub-segments or themes dominate the call (e.g. data center/cloud, sovereign AI, enterprise, robotics/physical AI, automotive, networking, gaming), and how does the emphasis shift vs. prior quarters?",
+        "answer": "The call is dominated by themes of cloud infrastructure, data centers, sovereign AI, and enterprise agents across productivity and coding domains.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Today, I will focus my remarks across the three layers of our stack: Cloud & Token Factory, Agent Platform, and High Value Agentic Experiences.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 5,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Sovereignty is increasingly top of mind for customers, and we are expanding our solutions and global footprint to match.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Which AI themes are introduced proactively in prepared remarks vs. only surfaced through analyst questions?",
+        "answer": "Cloud token factory infrastructure, custom silicon accelerators (Maia 200, Cobalt 200), sovereign AI, and agent platforms are introduced proactively in prepared remarks.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Earlier this week, we brought online our Maia 200 accelerator. Maia 200 delivers 10+ petaFLOPS at FP4 precision with over 30% improved TCO, compared to the latest generation hardware in our fleet.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is the AI opportunity framed as a secular/structural shift (multi-year industrial build-out) or as near-term product-cycle demand?",
+        "answer": "Management frames AI as a secular shift representing early innings of multi-year diffusion and broad GDP impact.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "We are in the beginning phases of AI diffusion and its broad GDP impact. Our TAM will grow substantially across every layer of the tech stack as this diffusion accelerates and spreads.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What total-addressable-market or infrastructure-spend figures does management cite to size the opportunity, and how do these evolve over time?",
+        "answer": "Management notes that their TAM will grow substantially across every layer of the tech stack as AI diffusion spreads.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Our TAM will grow substantially across every layer of the tech stack as this diffusion accelerates and spreads.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What tone does management convey (e.g. confident, promotional, urgent)? Since baseline tone is uniformly bullish for AI-native companies, does management acknowledge specific execution risks or bottlenecks (power, supply chain, geopolitics) alongside the bullish narrative, or is messaging uniformly promotional without caveats?",
+        "answer": "Management conveys a highly confident and bullish tone while explicitly acknowledging supply constraints where demand continues to exceed available supply.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 20,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "As mentioned earlier, we continue to see strong demand across workloads, customer segments, and geographic regions and demand continues to exceed available supply.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "execution_investment": {
+    "answers": [
+      {
+        "question": "What AI products/platforms are named, and what is their production status (development / ramping / full production)?",
+        "answer": "Named products include Maia 200 (brought online / ramping), Cobalt 200, Foundry, Fabric, M365 Copilot, GitHub Copilot, Security Copilot, and Dragon Copilot.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Earlier this week, we brought online our Maia 200 accelerator.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 11,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "And now have 15 million paid Microsoft 365 Copilot seats, and multiples more enterprise Chat users.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is the roadmap cadence (e.g. annual product cycle) reaffirmed, accelerated, or delayed relative to prior guidance?",
+        "answer": "The transcript does not explicitly discuss whether the overall roadmap cadence was reaffirmed, accelerated, or delayed relative to prior guidance.",
+        "evidence": []
+      },
+      {
+        "question": "Which customer segments/verticals are cited as adopting AI products (hyperscalers/CSPs, enterprises, sovereign/government, robotics, automotive), and what adoption evidence is given (named customers, deployment scale, revenue)?",
+        "answer": "Customer segments include enterprises, healthcare providers, and public sector organizations, with named clients such as Alaska Airlines, BMW, Land O'Lakes, Publicis, and Mount Sinai.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 8,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Alaska Airlines is creating natural language flight search. BMW is speeding up design cycles. Land O'Lakes is enabling precision farming for co-op members.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 11,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Publicis alone purchased over 95,000 seats for nearly all its employees.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What market/ecosystem validation is cited (developer adoption, benchmark results, named partner deployments)?",
+        "answer": "Ecosystem validation includes over 4.7 million paid GitHub Copilot subscribers, 15 million paid M365 Copilot seats, and partnerships with firms like Adobe, Databricks, ServiceNow, and Workday.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 12,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "And, all up now we have over 4.7 million paid Copilot subscribers, up 75% year-over-year.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 9,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "And partners like Adobe, Databricks, Genspark, Glean, NVIDIA, SAP, ServiceNow, and Workday are already integrating Agent 365.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What revenue, margin, or growth figures are disclosed for AI-related segments, and how does guidance evolve?",
+        "answer": "Microsoft Cloud revenue surpassed $50 billion for the first time, up 26% year-over-year, while Azure and other cloud services grew 39% (38% in constant currency).",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "This quarter, the Microsoft Cloud surpassed $50 billion in revenue for the first time, up 26% year-over-year, reflecting the strength of our platform and accelerating demand.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 20,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "In Azure and other cloud services, revenue grew 39% and 38% in constant currency, slightly ahead of expectations",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What capacity-side investment (capex, inventory, opex) is disclosed to support AI demand?",
+        "answer": "Capital expenditures for the quarter were $37.5 billion, with roughly two-thirds spent on short-lived assets primarily comprising GPUs and CPUs.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 17,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Capital expenditures were $37.5 billion, and this quarter, roughly two thirds of our capex was on short-lived assets, primarily GPUs and CPUs.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What capex/spending figures does management cite for customers' AI infrastructure investment as a demand proxy, and how does this evolve?",
+        "answer": "The transcript does not disclose specific aggregate capex spending figures for customers' AI infrastructure investments.",
+        "evidence": []
+      },
+      {
+        "question": "What ecosystem partnerships are named (cloud providers, model builders, industry/vertical partners, foundry/supply chain), and what role do they play in the narrative?",
+        "answer": "Named partners include OpenAI, Anthropic, Mistral, Cohere, NVIDIA, AMD, Adobe, ServiceNow, and Workday, highlighting broad model choice and platform integration.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 6,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "This quarter, we added support for GPT 5.2, as well as Claude 4.5. Already, over 1,500 customers have used both Anthropic and OpenAI models on Foundry.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is competitive advantage attributed to proprietary technology, ecosystem/developer lock-in, or both?",
+        "answer": "Competitive advantage is attributed to both proprietary technology (such as custom Maia silicon and Work IQ) and broad ecosystem choices.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 4,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "At the silicon layer, we have NVIDIA and AMD, and our own Maia chips, delivering the best all-up fleet performance, cost, and supply across multiple generations of hardware.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are supply chain dependencies or constraints disclosed as a risk to execution?",
+        "answer": "Management notes that customer demand continues to exceed available supply, requiring a balancing of allocations.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 17,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Our customer demand continues to exceed our supply. Therefore, we must balance the need to have our incoming supply better meet growing Azure demand",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "answers": [
+      {
+        "question": "Does management position the company as ahead of, behind, or on par with competitors - including alternative approaches?",
+        "answer": "Management positions Microsoft as a leader, citing that they offer the broadest selection of models of any hyperscaler and category leadership in areas like Dragon Copilot.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 6,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "And we offer the broadest selection of models of any hyperscaler.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 14,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "First, in healthcare, Dragon Copilot is the leader in its category, helping over one hundred thousand medical providers automate their workflows.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are specific competitive threats named, and how does management characterize the risk they pose?",
+        "answer": "The transcript does not explicitly name specific competing companies or products as direct threats.",
+        "evidence": []
+      },
+      {
+        "question": "What export control, licensing, or trade policy constraints are disclosed, and how do they affect guidance (e.g. excluded revenue, revenue-share terms)?",
+        "answer": "The transcript does not disclose any export control, licensing, or trade policy constraints impacting guidance.",
+        "evidence": []
+      },
+      {
+        "question": "How does management characterize the durability/predictability of these constraints (one-off vs. ongoing uncertainty)?",
+        "answer": "The transcript does not discuss export controls or trade policy constraints.",
+        "evidence": []
+      }
+    ]
+  },
+  "outlook_credibility": {
+    "answers": [
+      {
+        "question": "What specific, forward-looking pledges does management make about product roadmap, capacity, or delivery timelines?",
+        "answer": "Management pledges to continue expanding global data center capacity, scaling custom silicon like Maia 200, and onboarding secure AI workloads.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 35,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "The real thing we've got to do, and we're working incredibly hard at doing it, is adding capacity globally.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What is management's outlook on the AI market/industry trajectory (TAM estimates, growth rates, multi-year infrastructure spend), independent of company-specific commitments?",
+        "answer": "Management views the industry as being in the beginning phases of AI diffusion, which will drive substantial TAM growth across every layer of the tech stack.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "We are in the beginning phases of AI diffusion and its broad GDP impact. Our TAM will grow substantially across every layer of the tech stack as this diffusion accelerates and spreads.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are AI-related claims specific and quantifiable, or sweeping/directional (e.g. multi-trillion-dollar TAM, 'industrial revolution' framing) without clear evidentiary basis?",
+        "answer": "Management provides both directional macro framing and specific operational metrics, such as 15 million paid M365 Copilot seats and $37.5 billion in quarterly capex.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 11,
+            "speaker": {
+              "name": "Satya Nadella",
+              "role": "chairman and chief executive officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "And now have 15 million paid Microsoft 365 Copilot seats, and multiples more enterprise Chat users.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 17,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "Capital expenditures were $37.5 billion, and this quarter, roughly two thirds of our capex was on short-lived assets, primarily GPUs and CPUs.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Do this quarter's quantitative claims align with previously stated targets or guidance (where prior-quarter data is available)?",
+        "answer": "Management reports that financial performance exceeded expectations across revenue, operating income, and earnings per share.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 15,
+            "speaker": {
+              "name": "Amy Hood",
+              "role": "chief financial officer",
+              "company": "Microsoft"
+            },
+            "excerpt": "With growing demand for our offerings and focused execution by our sales teams, we again exceeded expectations across revenue, operating income and earnings per share",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  }
+}

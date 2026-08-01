@@ -1,0 +1,195 @@
+{
+  "company": "JPMorganChase",
+  "quarter_name": "2025_Q2",
+  "framing": {
+    "answers": [
+      {
+        "question": "Is AI raised proactively by management, or only in response to analyst questions?",
+        "answer": "AI was raised exclusively in response to an analyst question. It was not mentioned in the prepared remarks by management.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Steven Alexopolous",
+              "role": "Analyst",
+              "company": "TD Securities"
+            },
+            "excerpt": "Hey, good morning, everyone. I wanted to start, Jeremy, going back to your comments on inorganic things being on the table in terms of use of excess capital. So when I look at the company, so you're the largest U.S. bank by assets, you're also the largest in terms of the data you see every day. And you may or may not have seen that Apple's looking at possibly, there's chatter, getting into the AI game more by looking at a company such as a Perplexity.\n\nJust thinking out loud here, would it make sense for JPMorgan to consider acquiring an LLM, right? The last two quarters of buybacks are about the last valuation round for Perplexity, right. I'm thinking of you guys, you could become the LLM for the financial services industry. What are your thoughts on this?",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is AI framed primarily as a revenue/product driver, an efficiency/cost tool, or a competitive necessity?",
+        "answer": "Based on the limited discussion, AI is framed as a capability to be used, rather than a specific driver. When asked about acquiring an LLM, management states they 'use LLMs' but see no reason to own one, implying it is a tool or enabling technology. The analyst's question frames the opportunity as JPMorgan becoming 'the LLM for the financial services industry', suggesting a product or strategic positioning opportunity, but management does not engage with this framing.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Jamie Dimon",
+              "role": "Chairman & Chief Executive Officer",
+              "company": "JPMorganChase"
+            },
+            "excerpt": "We use LLMs, and we're going to be agnostic about that, too. There's no reason for us to own one. At least we can't figure out why that would make sense.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Steven Alexopolous",
+              "role": "Analyst",
+              "company": "TD Securities"
+            },
+            "excerpt": "I'm thinking of you guys, you could become the LLM for the financial services industry. What are your thoughts on this?",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Does management frame AI's net effect on the business as more opportunity or more risk?",
+        "answer": "The transcript does not contain enough information to answer this question. The discussion is limited to the strategic question of acquiring an LLM, and does not touch on the broader opportunities or risks of AI for the business.",
+        "evidence": []
+      },
+      {
+        "question": "What tone does management convey when discussing AI (e.g. defensive, cautious, hopeful, excited)?",
+        "answer": "Management's tone is neutral and pragmatic. When responding to the suggestion of acquiring an LLM, CEO Jamie Dimon is dismissive of the idea, stating, 'There's no reason for us to own one. At least we can't figure out why that would make sense.' This indicates a practical, build-vs-buy assessment rather than excitement or defensiveness about their AI position.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Jamie Dimon",
+              "role": "Chairman & Chief Executive Officer",
+              "company": "JPMorganChase"
+            },
+            "excerpt": "We use LLMs, and we're going to be agnostic about that, too. There's no reason for us to own one. At least we can't figure out why that would make sense.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "execution_investment": {
+    "answers": [
+      {
+        "question": "What investment (capex/opex) is disclosed for AI?",
+        "answer": "The transcript does not disclose any specific investment, capex, or opex for AI.",
+        "evidence": []
+      },
+      {
+        "question": "What returns (revenue, cost savings) or costs are attributed to AI, and how is ROI characterized?",
+        "answer": "The transcript does not attribute any returns, costs, or ROI to AI.",
+        "evidence": []
+      },
+      {
+        "question": "What internal AI use cases are named, and what is their maturity (prototype / production / scaled)?",
+        "answer": "The transcript does not name any specific internal AI use cases or their maturity.",
+        "evidence": []
+      },
+      {
+        "question": "What customer-facing AI products are named, what is their maturity, and what market/customer feedback is reported?",
+        "answer": "The transcript does not name any customer-facing AI products.",
+        "evidence": []
+      },
+      {
+        "question": "Does the company build proprietary AI capability, rely on external partners/vendors, or both?",
+        "answer": "Management indicates they use external LLMs and will remain 'agnostic' about them, suggesting a reliance on external vendors for this specific AI capability. CEO Jamie Dimon states, 'There's no reason for us to own one,' which implies a strategy of using rather than building foundational models.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Jamie Dimon",
+              "role": "Chairman & Chief Executive Officer",
+              "company": "JPMorganChase"
+            },
+            "excerpt": "We use LLMs, and we're going to be agnostic about that, too. There's no reason for us to own one. At least we can't figure out why that would make sense.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are new roles, teams, or organizational structures created for AI?",
+        "answer": "The transcript does not mention any new roles, teams, or organizational structures created for AI.",
+        "evidence": []
+      },
+      {
+        "question": "Is workforce impact (hiring, redeployment, headcount reduction) attributed to AI?",
+        "answer": "The transcript does not mention any workforce impact related to AI.",
+        "evidence": []
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "answers": [
+      {
+        "question": "Does management position the company as ahead of, behind, or on par with peers in AI?",
+        "answer": "The transcript does not contain any statements from management positioning the company's AI capabilities relative to its peers.",
+        "evidence": []
+      },
+      {
+        "question": "Are non-traditional competitors named as AI-enabled threats?",
+        "answer": "An analyst raises Apple's potential acquisition of an AI company ('Perplexity') as a competitive development, but management does not engage with this or name any other non-traditional competitors as AI-enabled threats.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Steven Alexopolous",
+              "role": "Analyst",
+              "company": "TD Securities"
+            },
+            "excerpt": "And you may or may not have seen that Apple's looking at possibly, there's chatter, getting into the AI game more by looking at a company such as a Perplexity.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "outlook_credibility": {
+    "answers": [
+      {
+        "question": "What specific, forward-looking pledges does management make about the company's own AI efforts (targets, timelines, deliverables)?",
+        "answer": "Management makes no specific forward-looking pledges about the company's own AI efforts in this transcript. The only commitment made is to remain 'agnostic' regarding the use of LLMs.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Jamie Dimon",
+              "role": "Chairman & Chief Executive Officer",
+              "company": "JPMorganChase"
+            },
+            "excerpt": "We use LLMs, and we're going to be agnostic about that, too.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What is management's outlook on how AI (technology/market/industry) will develop, independent of the company's own commitments?",
+        "answer": "The transcript does not contain any statements from management about their outlook on the development of AI technology, the market, or the industry.",
+        "evidence": []
+      },
+      {
+        "question": "Are AI-related claims specific and quantifiable, or vague and promotional?",
+        "answer": "The only AI-related claim made by management is that they 'use LLMs'. This is a vague, qualitative statement. No specific or quantifiable claims about AI are made.",
+        "evidence": [
+          {
+            "quarter_name": "2025_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Jamie Dimon",
+              "role": "Chairman & Chief Executive Officer",
+              "company": "JPMorganChase"
+            },
+            "excerpt": "We use LLMs, and we're going to be agnostic about that, too.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  }
+}

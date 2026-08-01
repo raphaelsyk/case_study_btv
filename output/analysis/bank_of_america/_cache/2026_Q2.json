@@ -1,0 +1,416 @@
+{
+  "company": "Bank of America",
+  "quarter_name": "2026_Q2",
+  "framing": {
+    "answers": [
+      {
+        "question": "Is AI raised proactively by management, or only in response to analyst questions?",
+        "answer": "Management proactively raised the topic of AI during their prepared remarks. The CEO, Brian Moynihan, mentioned 'AI-enabled productivity' early in his comments and later directed listeners to a new slide (slide 20) in the appendix dedicated to the company's AI initiatives, detailing use cases, adoption metrics, and the number of approved and live models.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "Third, we manage cost while we continue to invest in the franchise, our brand, our people, our technology, and our AI-enabled productivity. Asset quality also remained stable and consistent with the strong underwriting discipline that has characterized our company for many years.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "Before I turn it over to Alastair, I want to bring your attention to a couple slides. First, we have our digital slides in the appendix. In addition, we added a slide on AI, slide 20, which shows how our over 200,000 teammates are actively using AI-enabled capabilities across our company.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Is AI framed primarily as a revenue/product driver, an efficiency/cost tool, or a competitive necessity?",
+        "answer": "AI is framed as both an efficiency/cost tool and a revenue/product driver. Management highlighted internal use cases for improving productivity and efficiency, such as automating research and helping developers code more efficiently. They also pointed to revenue benefits, particularly in investment banking and global markets, which are benefiting from financing the 'massive capital investment and infrastructure build' related to AI in the broader economy. The CFO, Alastair Borthwick, noted that AI plays a role on both the revenue and operations sides.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "These tools are designed to help our customer relationship management prepare more thoroughly for the client meetings. Our bankers automate the research and presentation materials. Our developers code more efficiently. And all our teammates improve productivity, consistency and client service while creating significant opportunities ahead of us.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 8,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "AI plays a role, I think, in two ways. The first one is on the revenue side. There's obviously a big AI theme going on in the world. We're leading in investment banking and global markets around capital raising financing, that massive capital investment and infrastructure build around the world. So that's helping us there. And then you're asking a question that's really about sustainability going forward. Can it help us with our own operations? The answer is yes.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "We also see meaningful opportunities to continue using AI and automation ourselves to improve productivity, strengthen client engagement, and support disciplined growth across the company.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What tone does management convey when discussing AI (e.g. defensive, cautious, hopeful, excited)?",
+        "answer": "Management conveys a hopeful and confident tone when discussing AI. The CEO highlighted 'significant opportunities ahead of us' and proactively introduced a new slide detailing their progress. The CFO described their AI-driven revenue opportunities as a 'big AI theme' and affirmed that AI will contribute to operational sustainability. Both executives also stressed a responsible and careful approach to implementation, indicating a balance between enthusiasm and prudent management.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "And all our teammates improve productivity, consistency and client service while creating significant opportunities ahead of us.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 14,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "it's a very powerful tool. It has great utility. It has to be carefully managed. You have to have your data perfect. You have to have your rules based so it doesn't make mistakes in how you use it.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "execution_investment": {
+    "answers": [
+      {
+        "question": "What investment (capex/opex) is disclosed for AI?",
+        "answer": "No specific investment amount for capex or opex related to AI was disclosed in the transcript. Management mentioned continued investment in technology and 'AI-related initiatives' in general terms, but did not provide a figure.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 6,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "we continued our program of growth investments, including technology modernization, digital infrastructure and AI-related initiatives.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What returns (revenue, cost savings) or costs are attributed to AI, and how is ROI characterized?",
+        "answer": "Management did not quantify specific returns or cost savings from AI. However, they characterized the ROI as positive, stating that all 300 approved AI use cases 'have good economics'. On the revenue side, they noted that the global AI infrastructure build is helping drive activity in their investment banking and global markets divisions. On the cost side, they stated that AI is helping to generate operating leverage and that even the coding process is becoming more efficient, allowing the same amount of money to produce more output in the future.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "And as of last week, we had over 300 AI use cases approved - all of which have good economics - of which 114 are live generative AI use cases.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 8,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "AI plays a role, I think, in two ways. The first one is on the revenue side. There's obviously a big AI theme going on in the world. We're leading in investment banking and global markets around capital raising financing, that massive capital investment and infrastructure build around the world. So that's helping us there.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 10,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "And then secondly, even the coding process has become more and more efficient using these tools. So, the same amount of money in '27 will get us more code for lack of a better term, in '28.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What internal AI use cases are named, and what is their maturity (prototype / production / scaled)?",
+        "answer": "Internal AI use cases mentioned are focused on productivity, with tools for CRM, research automation, presentation material preparation for bankers, and more efficient coding for developers. At a broader level, tools are used across operations, risk, finance, and technology teams. The company states it has 300 approved AI use cases, with 114 being live generative AI use cases, of which 34 are 'fully implemented'. This suggests a range of maturity from approved concepts to scaled production tools. Over 200,000 employees are described as 'actively using AI-enabled capabilities', generating over 400,000 prompts daily, indicating significant scaling of these tools.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "These tools are designed to help our customer relationship management prepare more thoroughly for the client meetings. Our bankers automate the research and presentation materials. Our developers code more efficiently.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "our over 200,000 teammates are actively using AI-enabled capabilities across our company. These range from productivity tools to more advanced agentic workflows and coding support. Our associates are generating more than 400,000 prompts a day.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "And as of last week, we had over 300 AI use cases approved - all of which have good economics - of which 114 are live generative AI use cases. 34 of those cases are fully implemented, and we see new capabilities coming on every week.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What customer-facing AI products are named, what is their maturity, and what market/customer feedback is reported?",
+        "answer": "The primary customer-facing AI product mentioned is Erica, which is described as a mature and scaled tool with over 24 million active users. The transcript also mentions new AI-enabled tools in the Consumer Banking segment designed to 'enhance both the client and teammate experience' and in the GWIM segment to help advisers 'deliver more personalized advice at scale'. No specific market or customer feedback on these newer tools was detailed in the transcript.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 5,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "Digital engagement remains a clear differentiator with roughly 50 million active digital users, more than 24 million active Erica users and digital sales representing 70% of total sales. New AI capabilities have improved service, increased efficiency and allowed teammates to focus on higher-value client interactions.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 6,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "Franchise continued to benefit from strong adviser productivity, growing digital engagement and new AIenabled tools that help advisers prepare for client conversations, identify opportunities and deliver more personalized advice at scale.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Does the company build proprietary AI capability, rely on external partners/vendors, or both?",
+        "answer": "The transcript does not explicitly state whether the company builds its own proprietary AI or relies on vendors. However, the discussion of having their own developers use AI tools to code more efficiently and their detailed process for approving use cases suggests significant in-house involvement in implementation and development.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 10,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "I think there's productivity increases. There's a lot of spending. We're going to be spending more of it, whether that increases expenditures of technology development dramatically or not really has to do with a couple of things. One is their shifting of spending towards it.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are new roles, teams, or organizational structures created for AI?",
+        "answer": "The transcript does not mention the creation of any new roles, teams, or organizational structures specifically for AI.",
+        "evidence": []
+      },
+      {
+        "question": "Is workforce impact (hiring, redeployment, headcount reduction) attributed to AI?",
+        "answer": "No direct workforce impact, such as hiring, redeployment, or headcount reduction, was attributed to AI. The CFO noted that overall headcount has been 'flat to slightly down' over the last six quarters, which he attributed to 'headcount discipline', but did not link this directly to AI-driven productivity gains.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 13,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "But I think if you look at the core, the best core measure is probably headcount. Our head count discipline over the last 6 quarters has been excellent. It's flat to slightly down. So, we expect good core expense discipline and the expense at this point is really going to be based on what happens with revenue.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "answers": [
+      {
+        "question": "Does management position the company as ahead of, behind, or on par with peers in AI?",
+        "answer": "Management implies they are ahead of peers. The CEO mentions they are 'ahead of peers across every major category of AI and technology' and the CFO states they are 'leading in investment banking and global markets' around financing the AI infrastructure build-out. They also highlight their large-scale internal adoption and long-standing digital tools like Erica as differentiators.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 10,
+            "speaker": {
+              "name": "Ben Gerlinger",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "I guess that you're probably ahead of peers across every major category of AI and technology and is being a bit more digital.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 8,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "The first one is on the revenue side. There's obviously a big AI theme going on in the world. We're leading in investment banking and global markets around capital raising financing, that massive capital investment and infrastructure build around the world.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 7,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "Investments in technology and AI are helping teams deliver insights faster, operate more efficiently and further strengthen our competitive position.",
+            "is_grounded": false
+          }
+        ]
+      },
+      {
+        "question": "Are non-traditional competitors named as AI-enabled threats?",
+        "answer": "The transcript does not mention any non-traditional competitors as AI-enabled threats.",
+        "evidence": []
+      }
+    ]
+  },
+  "outlook_credibility": {
+    "answers": [
+      {
+        "question": "What specific, forward-looking pledges does management make about the company's own AI efforts (targets, timelines, deliverables)?",
+        "answer": "Management did not make any specific, forward-looking pledges with quantitative targets or timelines regarding their AI efforts. The CEO noted that 'new capabilities [are] coming on every week' and that AI will be 'something for the future', but did not provide a detailed roadmap or specific deliverables.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "34 of those cases are fully implemented, and we see new capabilities coming on every week. These tools are designed to help our customer relationship management prepare more thoroughly for the client meetings.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 8,
+            "speaker": {
+              "name": "Alastair Borthwick",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "So, this is going to be something for the future, and we're just working our way through it.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "What is management's outlook on how AI (technology/market/industry) will develop, independent of the company's own commitments?",
+        "answer": "Management views AI as a powerful and durable economic force. They see 'ongoing AI-driven investments across the board' as a key support for U.S. GDP growth. The CEO also stated that AI is a 'powerful tool' with 'great utility' that will be a 'powerful force' where the American economy will be very successful. They see a 'massive capital investment and infrastructure build around the world' related to AI, which presents a significant business opportunity.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "So overall, the U.S. economy has proved more durable than expected, supported by the strong consumer, ongoing AI-driven investments across the board, and easing energy costs, though inflation and tighter monetary policy remain key risk.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 14,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "And so, it's a very powerful tool. It has great utility. It has to be carefully managed.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 14,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "we feel it will be a powerful force in place where the American economy will be very successful.",
+            "is_grounded": true
+          }
+        ]
+      },
+      {
+        "question": "Are AI-related claims specific and quantifiable, or vague and promotional?",
+        "answer": "The claims are a mix of specific, quantifiable metrics and more general, promotional statements. On the specific side, management disclosed that over 200,000 employees are using AI tools, generating over 400,000 prompts daily. They also quantified the number of approved (300) and live (114) generative AI use cases. On the other hand, claims about ROI ('good economics') and benefits ('improve productivity', 'enhance consistency') are vague and not quantified in financial terms.",
+        "evidence": [
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "Our associates are generating more than 400,000 prompts a day. And as of last week, we had over 300 AI use cases approved - all of which have good economics - of which 114 are live generative AI use cases.",
+            "is_grounded": true
+          },
+          {
+            "quarter_name": "2026_Q2",
+            "page_no": 3,
+            "speaker": {
+              "name": "Brian Moynihan",
+              "role": null,
+              "company": null
+            },
+            "excerpt": "And all our teammates improve productivity, consistency and client service while creating significant opportunities ahead of us.",
+            "is_grounded": true
+          }
+        ]
+      }
+    ]
+  }
+}
