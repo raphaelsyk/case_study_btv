@@ -70,14 +70,17 @@ class CompanyAnalyzer:
         """
         cache_path = self._output_root / company / '_cache' / f'{quarter_name}.json'
         if cache_path.exists():
-            return QuarterAIAnalysis.model_validate_json(cache_path.read_text())
+            analysis = QuarterAIAnalysis.model_validate_json(cache_path.read_text())
+        else:
+            transcript = self._storage.load(company, quarter_name)
+            analysis = self._distiller.distill(transcript, company_slug=company)
+            self._ground_check(analysis, transcript)
 
-        transcript = self._storage.load(company, quarter_name)
-        analysis = self._distiller.distill(transcript, company_slug=company)
-        self._ground_check(analysis, transcript)
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(analysis.model_dump_json(indent=2))
 
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        cache_path.write_text(analysis.model_dump_json(indent=2))
+        # For monitoring/logging purposes, also write a human-readable markdown version of the cached analysis.
+        cache_path.with_suffix('.md').write_text(_render_evidence_markdown(analysis))
         return analysis
 
     @staticmethod
@@ -90,6 +93,42 @@ class CompanyAnalyzer:
         for section_name in _SECTION_NAMES:
             section: AnalysisSection = getattr(analysis, section_name)
             check_evidence_grounding(section.evidence, transcript.raw_pages)
+
+
+def _render_evidence_markdown(analysis: QuarterAIAnalysis) -> str:
+    """Renders one quarter's distilled analysis as a human-readable markdown doc,
+    for evaluating extraction quality and grounding without running synthesis.
+    """
+    lines = [f'# {analysis.company}: {analysis.quarter_name} — Extracted AI-Discussion Evidence', '']
+    for section_name in _SECTION_NAMES:
+        section: AnalysisSection = getattr(analysis, section_name)
+        lines.append(f'## {section_name}')
+        lines.append('')
+        lines.append(section.narrative)
+        lines.append('')
+        lines.append(_render_evidence_table(section.evidence))
+        lines.append('')
+    return '\n'.join(lines)
+
+
+def _render_evidence_table(evidence_items: list[Evidence]) -> str:
+    """Renders one section's evidence items as a markdown table."""
+    if not evidence_items:
+        return '_No evidence._'
+    rows = ['| # | Grounded | Page | Speaker | Excerpt |', '|---|---|---|---|---|']
+    rows.extend(
+        f'| {index} | {_grounded_label(evidence.is_grounded)} | {evidence.page_no} | '
+        f'{evidence.speaker.name} | {evidence.excerpt} |'
+        for index, evidence in enumerate(evidence_items, start=1)
+    )
+    return '\n'.join(rows)
+
+
+def _grounded_label(is_grounded: bool | None) -> str:
+    """Renders an Evidence item's `is_grounded` flag as a table cell value."""
+    if is_grounded is None:
+        return 'unchecked'
+    return 'yes' if is_grounded else 'no'
 
 
 if __name__ == '__main__':
