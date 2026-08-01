@@ -1,0 +1,47 @@
+<table style="width: 100%; border: none;"><tr><td style="border: none; vertical-align: top; text-align: left;"><h1>NVIDIA Corp.: AI-Discussion Trend Report</h1><p style="color: #999999;">AI generated -- for internal use only.</p></td><td style="border: none; vertical-align: top; text-align: right; width: 160px;"><img src="/Users/raphael/Documents/04 Persoenlich/04 Work/2512 Job Opportunities/01 Applications/260709 BTV Vier Länder/case_study_btv/src/logo.svg" alt="logo" width="140" /></td></tr></table>
+
+Quarters covered: 2026_Q1, 2026_Q2, 2026_Q3, 2026_Q4, 2027_Q1
+
+## Framing
+
+- AI's framing evolved across quarters from foundational data center compute and multi-year secular shifts in 2026_Q1 to the proliferation of agentic and physical AI applications driving financial performance by 2026_Q4 and 2027_Q1. [1][2][3]
+- Estimates for annual AI infrastructure spend expanded consistently, moving from $3 trillion to $4 trillion by the end of the decade in 2026_Q2 to hyperscale CapEx forecasts exceeding $1 trillion in 2027 by 2027_Q1. [4][5]
+
+## Execution & Investment
+
+- Production and deployment metrics scaled rapidly across quarters, with Blackwell rack shipments accelerating from 1,000 racks per week in 2026_Q2 to 9 gigawatts of deployed infrastructure by 2026_Q4. [6][7]
+- Total supply and inventory commitments grew steadily across the periods to match surging demand, with supply commitments reaching $145 billion in 2027_Q1. [8][9]
+
+## Competitive Landscape
+
+- Throughout all quarters, export controls and trade policies regarding China created ongoing uncertainty, with management continually omitting China data center compute revenue from guidance despite US government approvals for certain licenses. [10][11][12]
+- Management consistently positioned NVIDIA ahead of alternative custom ASICs and specialized accelerators, emphasizing full-stack hardware and software co-design as an unbeatable advantage. [13][14]
+
+## Outlook & Credibility
+
+- Cumulative revenue visibility and targets expanded across quarters, starting with a $500 billion Blackwell and Rubin revenue horizon in 2026_Q3 and growing to $1 trillion in revenue visibility from 2025 through calendar 2027 by 2027_Q1. [15][16]
+- Pledges regarding the annual product cadence remained consistent across all quarters, with Rubin successfully moving from fab in 2026_Q2 to sampling in 2026_Q4 and production shipments scheduled for Q3 of 2027_Q1. [17][18][19]
+
+## Evidence
+
+| # | quarter | page | speaker | excerpt |
+|---|---|---|---|---|
+| [1] | 2026_Q1 | 11 | Jensen Huang<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Co-Founder, President, Chief Executive Officer & Director, NVIDIA Corp.</span> | Of course, electricity was one and it became infrastructure. Of course, the information infrastructure, which we now know as the internet affects every single industry, every country, every society. Intelligence is surely one of those things. |
+| [2] | 2026_Q4 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | Agentic and physical AI applications built on increasingly smarter and multimodal models are beginning to drive our financial performance. |
+| [3] | 2027_Q1 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | Data Center revenue of $75 billion was up 92% year-over-year and 21% sequentially, driven by sustained strength in our Blackwell architecture. |
+| [4] | 2026_Q2 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | We see $3 trillion to $4 trillion in AI infrastructure spend by the end of the decade. |
+| [5] | 2027_Q1 | 4 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | With analysts now forecasting hyperscale CapEx to exceed $1 trillion in 2027 and agentic AI beginning to proliferate all industries, AI infrastructure spending is on track to reach $3 trillion to $4 trillion annually by the end of this decade. |
+| [6] | 2026_Q2 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | Today, full production is underway. The current run rate is back at full speed, producing approximately 1,000 racks per week. |
+| [7] | 2026_Q4 | 4 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | Nearly a year has passed since the release of our Grace Blackwell NVL72 systems. Today, nearly nine gigawatts of infrastructure on Blackwell are deployed and consumed by the major cloud service providers, hyperscalers, AI model makers and enterprises. |
+| [8] | 2026_Q3 | 7 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | On our balance sheet, inventory grew 32% quarter-over-quarter, while supply commitments increased 63% sequentially. We are preparing for significant growth ahead, and feel good about our ability to execute against our opportunity set. |
+| [9] | 2027_Q1 | 6 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | In Q1, we increased total supply, inclusive of inventory, purchase commitments, and prepaids to $145 billion. |
+| [10] | 2026_Q1 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | We were unable to ship $2.5 billion in H20 revenue in the first quarter due to the new export controls. The $4.5 billion charge was less than what we initially anticipated, as we were able to reuse certain materials. |
+| [11] | 2026_Q3 | 7 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | Consistent with last quarter, we are not assuming any Data Center compute revenue from China. |
+| [12] | 2027_Q1 | 5 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | While the US government has approved licenses for H200 to be shipped to China-based customers, we have yet to generate any revenue, and we are uncertain whether any imports will be allowed into the country. As a result, consistent with last quarter, we are not including any China Data Center compute revenue in our outlook. |
+| [13] | 2026_Q2 | 9 | Jen Hsun Huang<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Co-founder, President, Chief Executive Officer & Director, NVIDIA Corp.</span> | NVIDIA builds very different things in ASICs. So let me talk about ASICs first. A lot of projects are started. Many start-up companies are created. Very few products go into production. And the reason for that is it's really hard. |
+| [14] | 2027_Q1 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | Grace Blackwell is the fastest training system as well as the lowest token generation cost at inference. SpectrumX, our end-to-end Ethernet platform purpose built for AI, is now larger than all Ethernet network peers combined. |
+| [15] | 2026_Q3 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | We currently have visibility to a $0.5 trillion in Blackwell and Rubin revenue from the start of this year through the end of calendar year 2026. |
+| [16] | 2027_Q1 | 6 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | We are continuing to work vigorously on our supply chain ecosystem to address the incredible demand we see ahead of us, giving us full confidence in the $1 trillion in Blackwell and Rubin revenue we foresee from 2025 through calendar 2027. |
+| [17] | 2026_Q2 | 3 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | This keeps us on track with our pace of an annual product cadence and continuous innovation across compute, networking, systems and software. |
+| [18] | 2026_Q4 | 5 | Colette M. Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | We shipped our first Vera Rubin samples to customers earlier this week and we remain on track to commence production shipments in the second half of the year. |
+| [19] | 2027_Q1 | 5 | Colette Kress<br><span style="color: #999999; font-size: 6pt; font-weight: bold;">Chief Financial Officer & Executive Vice President, NVIDIA Corp.</span> | We are on track to commence production shipments of Vera Rubin in the second half of this year, starting in Q3. |
