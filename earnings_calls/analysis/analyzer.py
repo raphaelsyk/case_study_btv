@@ -90,3 +90,17 @@ class CompanyAnalyzer:
         for section_name in _SECTION_NAMES:
             section: AnalysisSection = getattr(analysis, section_name)
             check_evidence_grounding(section.evidence, transcript.raw_pages)
+
+
+if __name__ == '__main__':
+    import os
+
+    from earnings_calls.llm_client import GeminiVertexClient
+    from earnings_calls.storage.json_file_storage import JsonFileStorage
+
+    llm = GeminiVertexClient(
+        os.getenv('GOOGLE_CLOUD_PROJECT'), os.getenv('GOOGLE_CLOUD_LOCATION'), os.getenv('GEMINI_MODEL')
+    )
+    storage = JsonFileStorage(Path('output/structured'))
+    analyzer = CompanyAnalyzer(llm=llm, storage=storage, output_root=Path('output/tmp'))
+    analyzer.analyze('bank_of_america')
