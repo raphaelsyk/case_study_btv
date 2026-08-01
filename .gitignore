@@ -2,7 +2,7 @@
 .DS_Store
 
 # Generated output
-/output/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -224,6 +224,5 @@ __marimo__/
 .streamlit/secrets.toml
 
 
-data/
-*.pdf
+
 *.txt
