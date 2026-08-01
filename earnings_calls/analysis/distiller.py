@@ -3,7 +3,6 @@ citeable AI-discussion analysis.
 
 Built only from a Transcript's `identity`, `participants`, and `turns` - never
 `raw_pages`, which has no speaker attribution and so cannot back an `Evidence` item.
-See the "Analyzer Module" decision in system_design/02_system_design.md.
 """
 
 from collections.abc import Sequence
@@ -44,23 +43,18 @@ class QuarterDistiller:
         """Runs the stage-1 distill call for one quarter.
 
         Args:
-            transcript: The quarter's structured transcript. `raw_pages` is not used -
-                only `identity`, `participants` (via speaker labels on turns), and
-                `turns` are sent to the LLM.
-            company_slug: The storage slug used to pick the sector-specific prompt
-                (see `earnings_calls.analysis.sector`).
-
+            transcript: The quarter's structured transcript.
+            company_slug: The storage slug used to pick the sector-specific prompt.
         Returns:
-            The quarter's structured AI-discussion analysis, with `company` and
-            `quarter_name` set from `transcript.identity` and every evidence item's
-            `quarter_name` backfilled the same way.
+            The quarter's structured AI-discussion analysis.
         """
         sector = sector_for_company(company_slug)
+        tagged_turns = self._render_turns(transcript.turns)
         prompt = prompts.distill_prompt(
             sector=sector,
             company=transcript.identity.company,
             quarter_name=transcript.identity.quarter_name,
-            tagged_turns=self._render_turns(transcript.turns),
+            tagged_turns=tagged_turns,
         )
         response = self._llm.generate_structured(prompt, _DistillResponse)
         quarter_name = transcript.identity.quarter_name

@@ -66,8 +66,7 @@ class CompanyAnalyzer:
         """Loads a cached stage-1 analysis for `quarter_name`, or distills and caches it.
 
         Delete `{output_root}/{company}/_cache/` to force a refresh after a distill
-        prompt change - staleness detection isn't implemented (see the "Analyzer
-        Module" decision in system_design/02_system_design.md).
+        prompt change.
         """
         cache_path = self._output_root / company / '_cache' / f'{quarter_name}.json'
         if cache_path.exists():
